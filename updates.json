@@ -1,0 +1,20 @@
+﻿[
+  {
+    "date": "2026-06-22",
+    "title": "官网上线：支持下载跳转和高清截图预览",
+    "summary": "首页、功能页、下载页、教程页、FAQ、更新日志、sitemap、robots 和 llms.txt 已完成，功能截图支持点击查看高清原图。",
+    "url": "changelog.html"
+  },
+  {
+    "date": "2026-06-22",
+    "title": "当前安装包：Windows x64 v1.3.10",
+    "summary": "推荐 Windows 10 / Windows 11，推荐 Chrome 129-136。账号申请与服务支持请联系微信 aff22g。",
+    "url": "download.html"
+  },
+  {
+    "date": "2026-06-22",
+    "title": "教程视频已加入官网",
+    "summary": "12 分 52 秒完整教程已放入教程页，页面默认只读取视频元数据，减少首屏流量消耗。",
+    "url": "tutorial.html"
+  }
+]
