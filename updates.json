@@ -1,6 +1,12 @@
 [
     {
         "date":  "2026-06-29",
+        "title":  "新增文章：AI 视频二创软件适合哪些带货团队",
+        "summary":  "第三篇运营文章已上线，围绕素材量、账号数量、商品节奏、AI 成片、AI 混剪、剪映模板、人工审核和发布复盘，说明哪些团队适合使用 AI 视频二创软件。",
+        "url":  "articles/ai-video-erchuang-software.html"
+    },
+    {
+        "date":  "2026-06-29",
         "title":  "新增文章：短视频带货批量发布工具需要哪些功能",
         "summary":  "第二篇运营文章已上线，围绕多账号管理、素材归档、草稿复用、定时发布、失败重试、挂车检查和数据复盘，拆解批量发布工具的选型重点。",
         "url":  "articles/short-video-batch-publishing-tool.html"
