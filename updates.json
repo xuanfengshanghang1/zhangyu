@@ -1,6 +1,12 @@
 [
     {
         "date":  "2026-06-29",
+        "title":  "新增文章：多账号短视频带货如何做内容管理",
+        "summary":  "第五篇运营文章已上线，围绕已发作品集中查看、账号商品素材关联、挂车检查、异常监控、删除分享同框操作记录和数据回流，说明多账号团队怎么把发布后的内容管起来。",
+        "url":  "articles/multi-account-content-management.html"
+    },
+    {
+        "date":  "2026-06-29",
         "title":  "新增文章：快手选品到素材下载怎么做成标准流程",
         "summary":  "第四篇运营文章已上线，围绕快手选品、榜单判断、佣金和销量、素材下载、文件命名、产品素材库和二创衔接，说明团队怎么减少选品到素材环节的返工。",
         "url":  "articles/kuaishou-selection-material-workflow.html"
