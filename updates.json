@@ -1,6 +1,12 @@
 [
     {
         "date":  "2026-06-29",
+        "title":  "新增文章：快手选品到素材下载怎么做成标准流程",
+        "summary":  "第四篇运营文章已上线，围绕快手选品、榜单判断、佣金和销量、素材下载、文件命名、产品素材库和二创衔接，说明团队怎么减少选品到素材环节的返工。",
+        "url":  "articles/kuaishou-selection-material-workflow.html"
+    },
+    {
+        "date":  "2026-06-29",
         "title":  "新增文章：AI 视频二创软件适合哪些带货团队",
         "summary":  "第三篇运营文章已上线，围绕素材量、账号数量、商品节奏、AI 成片、AI 混剪、剪映模板、人工审核和发布复盘，说明哪些团队适合使用 AI 视频二创软件。",
         "url":  "articles/ai-video-erchuang-software.html"
