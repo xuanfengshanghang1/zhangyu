@@ -1,6 +1,12 @@
 [
     {
         "date":  "2026-06-30",
+        "title":  "新增文章：带货短视频素材复投怎么判断",
+        "summary":  "第十四篇运营文章已上线，围绕带货短视频素材复投、AI 视频二创、商品匹配、账号表现、播放成交、ROI 和内容管理，说明哪些素材值得继续二创复用，哪些素材应该改标题、换商品或直接停掉。",
+        "url":  "articles/kuaishou-daihuo-material-reuse-erchuang.html"
+    },
+    {
+        "date":  "2026-06-30",
         "title":  "新增文章：快手矩阵带货怎么做数据复盘",
         "summary":  "第十三篇运营文章已上线，围绕账号、商品、素材、作品、发布状态、磁力金牛、智能投放、成交金额、订单数和 ROI，说明短视频带货团队怎么把播放、成交和素材复投放到同一条复盘链路里。",
         "url":  "articles/kuaishou-matrix-data-review-roi.html"
