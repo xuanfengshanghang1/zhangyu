@@ -37,6 +37,7 @@
 - 已发布文章：/articles/kuaishou-matrix-account-start-workflow.html
 - 已发布文章：/articles/zhangyu-daihuo-for-beginners-or-teams.html
 - 已发布文章：/articles/zhangyu-vs-normal-video-editor.html
+- 已发布文章：/articles/kuaishou-matrix-data-review-roi.html
 - 第一批文章方向：快手矩阵带货软件选型、短视频带货批量发布、AI 视频二创、快手选品、素材下载、内容管理、磁力金牛投放、数据复盘。
 
 ## 下载与环境
