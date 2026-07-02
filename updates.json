@@ -1,5 +1,11 @@
 [
     {
+        "date":  "2026-07-02",
+        "title":  "官网域名与备案信息已更新",
+        "summary":  "官网主域已切换为 www.zhangyudaihuo.cn，并在页面底部展示蜀ICP备2026034114号-3。sitemap、robots、canonical、llms.txt 和 GitHub Pages 自定义域名文件已同步更新。",
+        "url":  "changelog.html"
+    },
+    {
         "date":  "2026-07-01",
         "title":  "新增文章：快手矩阵批量发布失败怎么排查",
         "summary":  "第十五篇运营文章已上线，围绕快手矩阵批量发布失败、账号掉线、草稿异常、商品挂车失败、定时发布、任务队列、失败重试和发布后内容管理，整理一套先定位原因再处理的排查顺序。",
