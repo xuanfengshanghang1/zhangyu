@@ -763,6 +763,23 @@ p {
   color: #9ba8ba;
 }
 
+.footer-legal {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 18px;
+  align-items: center;
+  margin-top: 28px;
+  padding-top: 18px;
+  border-top: 1px solid rgba(216, 222, 232, 0.14);
+  color: #9ba8ba;
+  font-size: 13px;
+}
+
+.footer-legal a {
+  margin-top: 0;
+  color: #d8dee8;
+}
+
 .mobile-toggle {
   display: none;
 }
