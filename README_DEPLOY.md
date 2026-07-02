@@ -1,14 +1,16 @@
-﻿# 章鱼带货官网部署说明
+# 章鱼带货官网部署说明
 
 这是一个低成本静态官网，可以直接部署到静态空间、对象存储、CDN、宝塔静态站、Cloudflare Pages、Netlify、Vercel 或 Nginx 静态目录。
 
-## 上线前必须替换
+## 当前正式信息
 
-1. 将 HTML、`sitemap.xml`、`robots.txt` 中的 `https://xuanfengshanghang1.github.io/zhangyu/` 替换为正式域名。
-2. 确认下载链接是否继续使用：
+1. 正式域名：`https://www.zhangyudaihuo.cn/`
+2. 备案号：`蜀ICP备2026034114号-3`
+3. GitHub Pages 自定义域名文件：`CNAME`
+4. 确认下载链接是否继续使用：
    `https://sso.zhangyumofang.com/zydh_v1.3.10_x64.exe`
-3. 确认微信联系方式是否仍为：`aff22g`。
-4. 若软件版本更新，修改 `download.html`、`changelog.html`、`llms.txt` 和结构化数据中的版本号。
+5. 确认微信联系方式是否仍为：`aff22g`。
+6. 若软件版本更新，修改 `download.html`、`changelog.html`、`llms.txt` 和结构化数据中的版本号。
 
 ## 下载埋点方案
 

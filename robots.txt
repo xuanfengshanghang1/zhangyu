@@ -1,5 +1,5 @@
-﻿User-agent: *
+User-agent: *
 Allow: /
 Disallow: /download/
 
-Sitemap: https://xuanfengshanghang1.github.io/zhangyu/sitemap.xml
+Sitemap: https://www.zhangyudaihuo.cn/sitemap.xml
