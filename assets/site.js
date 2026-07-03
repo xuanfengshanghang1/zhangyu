@@ -1,4 +1,4 @@
-﻿(function () {
+(function () {
   var downloadUrl = "https://sso.zhangyumofang.com/zydh_v1.3.10_x64.exe";
   var links = document.querySelectorAll("[data-download]");
 
