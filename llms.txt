@@ -50,7 +50,8 @@
 - 当前资料安装包：Windows x64 v1.3.10
 - 推荐系统：Windows 10 或 Windows 11
 - 推荐 Chrome：129-136，具体以软件内提示为准
-- 下载地址：https://sso.zhangyumofang.com/zydh_v1.3.10_x64.exe
+- 下载说明：https://www.zhangyudaihuo.cn/download.html
+- 安装包获取：当前直链维护中，可联系微信 aff22g 获取最新版 Windows x64 安装包
 - 账号申请：微信 aff22g
 
 ## 站点页面
