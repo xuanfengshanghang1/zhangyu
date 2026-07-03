@@ -1,5 +1,4 @@
 (function () {
-  var downloadUrl = "https://sso.zhangyumofang.com/zydh_v1.3.10_x64.exe";
   var links = document.querySelectorAll("[data-download]");
 
   links.forEach(function (link) {
@@ -11,22 +10,6 @@
       }
     });
   });
-
-  var redirect = document.querySelector("[data-download-redirect]");
-  if (redirect) {
-    var counter = document.querySelector("[data-countdown]");
-    var seconds = 3;
-    var tick = function () {
-      if (counter) counter.textContent = String(seconds);
-      if (seconds === 0) {
-        window.location.href = downloadUrl;
-        return;
-      }
-      seconds -= 1;
-      window.setTimeout(tick, 1000);
-    };
-    tick();
-  }
 
   var updatesPanel = document.querySelector("[data-updates]");
   if (updatesPanel && window.fetch) {

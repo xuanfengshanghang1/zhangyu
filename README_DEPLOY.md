@@ -8,7 +8,7 @@
 2. 备案号：`蜀ICP备2026034114号-3`
 3. GitHub Pages 自定义域名文件：`CNAME`
 4. 确认下载链接是否继续使用：
-   `https://sso.zhangyumofang.com/zydh_v1.3.10_x64.exe`
+   当前安装包直链维护中，下载入口先指向 `download.html#account`，由微信 aff22g 提供最新版安装包。
 5. 确认微信联系方式是否仍为：`aff22g`。
 6. 若软件版本更新，修改 `download.html`、`changelog.html`、`llms.txt` 和结构化数据中的版本号。
 
@@ -17,7 +17,7 @@
 当前站点提供两个下载入口：
 
 - `download/`：下载跳转页，适合统计访问来源。
-- `https://sso.zhangyumofang.com/zydh_v1.3.10_x64.exe`：直接下载链接。
+- `download.html#account`：当前安装包获取入口；拿到稳定安装包地址后再替换为直接下载链接。
 
 低成本统计方式：
 
