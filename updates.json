@@ -1,5 +1,17 @@
 [
     {
+        "date": "2026-07-04",
+        "title": "小程序 API 子域名已上线",
+        "summary": "api.zhangyudaihuo.cn 已完成 DNS 解析、HTTPS 证书、Nginx 反向代理和 Node 后端部署，/health 接口已通过外网检测，可用于微信小程序 request 合法域名配置。",
+        "url": "changelog.html"
+    },
+    {
+        "date": "2026-07-03",
+        "title": "图片加载和下载入口已修正",
+        "summary": "页面展示图已切换为 WebP 和缩略图，点击截图仍可查看高清原图；失效的 EXE 直链已移除，下载入口改为联系微信 aff22g 获取最新版安装包。",
+        "url": "download.html"
+    },
+    {
         "date":  "2026-07-02",
         "title":  "官网域名与备案信息已更新",
         "summary":  "官网主域已切换为 www.zhangyudaihuo.cn，并在页面底部展示蜀ICP备2026034114号-3。sitemap、robots、canonical、llms.txt 和 GitHub Pages 自定义域名文件已同步更新。",
