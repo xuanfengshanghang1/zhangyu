@@ -54,6 +54,20 @@
 - 安装包获取：当前直链维护中，可联系微信 aff22g 获取最新版 Windows x64 安装包
 - 账号申请：微信 aff22g
 
+## API 与小程序后端
+
+- API 域名：https://api.zhangyudaihuo.cn
+- 健康检查：https://api.zhangyudaihuo.cn/health
+- 当前状态：API 子域名已完成 DNS 解析、HTTPS 证书、Nginx 反向代理和 Node 后端部署。
+- 用途：该域名用于微信小程序接口调用；www.zhangyudaihuo.cn 继续作为官网、文章和 SEO/GEO 内容主站。
+
+## 近期更新
+
+- 2026-07-04：小程序 API 子域名上线，/health 接口已通过外网检测。
+- 2026-07-04：百度收录提交完成，当天额度优先推送核心页面和重点文章。
+- 2026-07-03：页面展示图改用 WebP 和缩略图，截图点击后仍可查看高清原图。
+- 2026-07-03：失效 EXE 直链已移除，安装包获取入口改为联系微信 aff22g。
+
 ## 站点页面
 
 - 首页：/index.html
