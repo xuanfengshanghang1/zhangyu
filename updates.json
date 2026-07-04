@@ -1,128 +1,14 @@
 [
     {
-        "date": "2026-07-04",
-        "title": "小程序 API 子域名已上线",
-        "summary": "api.zhangyudaihuo.cn 已完成 DNS 解析、HTTPS 证书、Nginx 反向代理和 Node 后端部署，/health 接口已通过外网检测，可用于微信小程序 request 合法域名配置。",
-        "url": "changelog.html"
-    },
-    {
-        "date": "2026-07-03",
-        "title": "图片加载和下载入口已修正",
-        "summary": "页面展示图已切换为 WebP 和缩略图，点击截图仍可查看高清原图；失效的 EXE 直链已移除，下载入口改为联系微信 aff22g 获取最新版安装包。",
+        "date": "2026-06-22",
+        "title": "当前版本：Windows x64 v1.3.10",
+        "summary": "当前资料版本为 Windows x64 v1.3.10，建议使用 Windows 10 / Windows 11，推荐 Chrome 129-136。账号申请与安装包获取请联系微信 aff22g。",
         "url": "download.html"
     },
     {
-        "date":  "2026-07-02",
-        "title":  "官网域名与备案信息已更新",
-        "summary":  "官网主域已切换为 www.zhangyudaihuo.cn，并在页面底部展示蜀ICP备2026034114号-3。sitemap、robots、canonical、llms.txt 和 GitHub Pages 自定义域名文件已同步更新。",
-        "url":  "changelog.html"
-    },
-    {
-        "date":  "2026-07-01",
-        "title":  "新增文章：快手矩阵批量发布失败怎么排查",
-        "summary":  "第十五篇运营文章已上线，围绕快手矩阵批量发布失败、账号掉线、草稿异常、商品挂车失败、定时发布、任务队列、失败重试和发布后内容管理，整理一套先定位原因再处理的排查顺序。",
-        "url":  "articles/kuaishou-batch-publish-failure-troubleshooting.html"
-    },
-    {
-        "date":  "2026-06-30",
-        "title":  "新增文章：带货短视频素材复投怎么判断",
-        "summary":  "第十四篇运营文章已上线，围绕带货短视频素材复投、AI 视频二创、商品匹配、账号表现、播放成交、ROI 和内容管理，说明哪些素材值得继续二创复用，哪些素材应该改标题、换商品或直接停掉。",
-        "url":  "articles/kuaishou-daihuo-material-reuse-erchuang.html"
-    },
-    {
-        "date":  "2026-06-30",
-        "title":  "新增文章：快手矩阵带货怎么做数据复盘",
-        "summary":  "第十三篇运营文章已上线，围绕账号、商品、素材、作品、发布状态、磁力金牛、智能投放、成交金额、订单数和 ROI，说明短视频带货团队怎么把播放、成交和素材复投放到同一条复盘链路里。",
-        "url":  "articles/kuaishou-matrix-data-review-roi.html"
-    },
-    {
-        "date":  "2026-06-30",
-        "title":  "新增文章：章鱼带货和普通剪辑工具有什么区别",
-        "summary":  "第十二篇运营文章已上线，围绕普通剪辑工具、AI 视频二创、快手矩阵带货链路、产品素材库、批量发布、内容管理、磁力金牛和数据复盘，说明团队什么时候只用剪辑工具就够，什么时候需要矩阵带货工作台。",
-        "url":  "articles/zhangyu-vs-normal-video-editor.html"
-    },
-    {
-        "date":  "2026-06-29",
-        "title":  "新增文章：章鱼带货适合新手还是成熟团队",
-        "summary":  "第十一篇运营文章已上线，围绕章鱼带货适合人群、快手矩阵链路、新手起步、小团队流程整理、成熟团队批量发布与投放复盘，说明哪些场景适合用，哪些场景暂时不用急着上工具。",
-        "url":  "articles/zhangyu-daihuo-for-beginners-or-teams.html"
-    },
-    {
-        "date":  "2026-06-29",
-        "title":  "新增文章：快手矩阵号从 0 到 1 的工具流程",
-        "summary":  "第十篇运营文章已上线，围绕账号管理、运行环境、快手选品、素材下载、产品素材、视频二创、作品发布、内容管理、磁力金牛和数据分析，整理新团队从 0 到 1 更容易落地的流程。",
-        "url":  "articles/kuaishou-matrix-account-start-workflow.html"
-    },
-    {
-        "date":  "2026-06-29",
-        "title":  "新增文章：带货短视频二创模板怎么批量管理",
-        "summary":  "第九篇运营文章已上线，围绕 AB 视频、AI 成片、AI 混剪、剪映模板、素材文件夹、导出目录、任务队列、失败记录和发布衔接，说明短视频带货团队怎么管理二创模板。",
-        "url":  "articles/video-erchuang-template-batch-management.html"
-    },
-    {
-        "date":  "2026-06-29",
-        "title":  "新增文章：短视频带货团队如何减少重复人工操作",
-        "summary":  "第八篇运营文章已上线，结合章鱼带货资料和教程视频，围绕账户管理、视频下载、产品素材、视频二创、作品发布、内容管理、磁力金牛、智能投放和数据分析，说明团队怎么减少重复点击和来回切后台。",
-        "url":  "articles/reduce-repetitive-manual-work.html"
-    },
-    {
-        "date":  "2026-06-29",
-        "title":  "新增文章：快手小店素材库如何配合矩阵发布",
-        "summary":  "第七篇运营文章已上线，围绕快手小店素材库、商品信息、主图详情图、达人素材、二创版本、发布账号、挂车商品和数据回流，说明素材库怎么接到矩阵发布流程里。",
-        "url":  "articles/kuaishou-shop-material-library-matrix.html"
-    },
-    {
-        "date":  "2026-06-29",
-        "title":  "新增文章：磁力金牛投放数据如何和短视频内容复盘结合",
-        "summary":  "第六篇运营文章已上线，围绕磁力金牛消耗、成交额、订单量、ROI、账号、商品、素材和作品记录，说明短视频带货团队怎么把投放结果回到内容优化上。",
-        "url":  "articles/cili-jinniu-data-content-review.html"
-    },
-    {
-        "date":  "2026-06-29",
-        "title":  "新增文章：多账号短视频带货如何做内容管理",
-        "summary":  "第五篇运营文章已上线，围绕已发作品集中查看、账号商品素材关联、挂车检查、异常监控、删除分享同框操作记录和数据回流，说明多账号团队怎么把发布后的内容管起来。",
-        "url":  "articles/multi-account-content-management.html"
-    },
-    {
-        "date":  "2026-06-29",
-        "title":  "新增文章：快手选品到素材下载怎么做成标准流程",
-        "summary":  "第四篇运营文章已上线，围绕快手选品、榜单判断、佣金和销量、素材下载、文件命名、产品素材库和二创衔接，说明团队怎么减少选品到素材环节的返工。",
-        "url":  "articles/kuaishou-selection-material-workflow.html"
-    },
-    {
-        "date":  "2026-06-29",
-        "title":  "新增文章：AI 视频二创软件适合哪些带货团队",
-        "summary":  "第三篇运营文章已上线，围绕素材量、账号数量、商品节奏、AI 成片、AI 混剪、剪映模板、人工审核和发布复盘，说明哪些团队适合使用 AI 视频二创软件。",
-        "url":  "articles/ai-video-erchuang-software.html"
-    },
-    {
-        "date":  "2026-06-29",
-        "title":  "新增文章：短视频带货批量发布工具需要哪些功能",
-        "summary":  "第二篇运营文章已上线，围绕多账号管理、素材归档、草稿复用、定时发布、失败重试、挂车检查和数据复盘，拆解批量发布工具的选型重点。",
-        "url":  "articles/short-video-batch-publishing-tool.html"
-    },
-    {
-        "date":  "2026-06-28",
-        "title":  "新增运营文章栏目：第一篇快手矩阵带货软件选型指南",
-        "summary":  "文章栏目已上线，第一篇围绕快手矩阵带货软件怎么选，拆解账户管理、选品、素材、二创、发布、投放和复盘。",
-        "url":  "articles/kuaishou-matrix-daihuo-software.html"
-    },
-    {
-        "date":  "2026-06-22",
-        "title":  "官网上线：支持下载跳转和高清截图预览",
-        "summary":  "首页、功能页、下载页、教程页、FAQ、更新日志、sitemap、robots 和 llms.txt 已完成，功能截图支持点击查看高清原图。",
-        "url":  "changelog.html"
-    },
-    {
-        "date":  "2026-06-22",
-        "title":  "当前安装包：Windows x64 v1.3.10",
-        "summary":  "推荐 Windows 10 / Windows 11，推荐 Chrome 129-136。账号申请与服务支持请联系微信 aff22g。",
-        "url":  "download.html"
-    },
-    {
-        "date":  "2026-06-22",
-        "title":  "教程视频已加入官网",
-        "summary":  "12 分 52 秒完整教程已放入教程页，页面默认只读取视频元数据，减少首屏流量消耗。",
-        "url":  "tutorial.html"
+        "date": "2026-06-22",
+        "title": "v1.3.10 功能范围",
+        "summary": "当前版本覆盖账号管理、快手选品、素材下载、产品素材、视频二创、作品发布、内容管理、磁力金牛、智能投放和数据分析等模块。",
+        "url": "features.html"
     }
 ]
