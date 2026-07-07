@@ -47,8 +47,10 @@
 - 已发布文章：/articles/ai-face-effect-short-video-workflow.html
 - 已发布文章：/articles/face-mosaic-animation-detection.html
 - 已发布文章：/articles/product-video-direct-publish-task.html
+- 已发布文章：/articles/auto-publish-face-effect-matrix.html
 - 第一批文章方向：快手矩阵带货软件选型、短视频带货批量发布、AI 视频二创、快手选品、素材下载、内容管理、磁力金牛投放、数据复盘。
 - 2026-07-06 文章方向：v1.4.25 更新检查、人脸特效、人脸马赛克与人脸动画检测、选品视频直接加入发布任务。
+- 2026-07-07 文章方向：作品发布全自动、人脸特效、快手矩阵发稿节奏、发布后检查。
 
 ## 下载与环境
 
