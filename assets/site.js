@@ -1,4 +1,18 @@
 (function () {
+  var currentPath = window.location.pathname.split("/").pop() || "index.html";
+  if (window.location.pathname.indexOf("/articles/") !== -1) {
+    currentPath = "articles.html";
+  }
+
+  document.querySelectorAll(".nav-links a").forEach(function (link) {
+    var href = (link.getAttribute("href") || "").split("#")[0];
+    var target = href || "index.html";
+    if (target === currentPath) {
+      link.classList.add("is-current");
+      link.setAttribute("aria-current", "page");
+    }
+  });
+
   var links = document.querySelectorAll("[data-download]");
 
   links.forEach(function (link) {
@@ -67,8 +81,10 @@
     var title = lightbox.querySelector(".image-lightbox__title");
     var openLink = lightbox.querySelector(".image-lightbox__actions a");
     var closeButton = lightbox.querySelector(".image-lightbox__actions button");
+    var lastFocusedElement = null;
 
     var getFullSrc = function (src) {
+      if (!src) return "";
       return src.replace("-thumb.webp", ".png").replace(".webp", ".png");
     };
 
@@ -76,6 +92,9 @@
       lightbox.classList.remove("is-open");
       fullImage.removeAttribute("src");
       document.body.style.overflow = "";
+      if (lastFocusedElement && typeof lastFocusedElement.focus === "function") {
+        lastFocusedElement.focus();
+      }
     };
 
     galleryImages.forEach(function (image) {
@@ -84,7 +103,9 @@
 
       var openLightbox = function () {
         var fullSrc = getFullSrc(image.getAttribute("src"));
+        if (!fullSrc) return;
         var alt = image.getAttribute("alt") || "章鱼带货软件截图";
+        lastFocusedElement = image;
         fullImage.setAttribute("src", fullSrc);
         fullImage.setAttribute("alt", alt);
         title.textContent = alt;
