@@ -102,51 +102,99 @@
     <nav class="nav" aria-label="主导航">
       <a class="brand" href="index.html"><span class="brand-mark">章</span><span>章鱼带货</span></a>
       <div class="nav-links"><a href="index.html">首页</a><a href="features.html">功能</a><a href="tutorial.html">教程</a><a href="articles.html">文章</a><a href="download.html">下载</a><a href="faq.html">FAQ</a><a href="changelog.html">更新日志</a></div>
-      <div class="nav-cta"><a class="btn ghost" href="#account">免费申请</a><a class="btn primary" href="#account" data-download>下载 Windows 版</a></div>
+      <div class="nav-cta"><a class="btn ghost" href="#account">免费申请</a><a class="btn primary" href="#install" data-download>下载 Windows 版</a></div>
     </nav>
   </header>
   <main>
     <section class="section">
-      <div class="container download-layout">
+      <div class="container dlx-grid">
         <div>
-          <span class="eyebrow">软件下载</span>
+          <span class="eyebrow">软件下载 · v1.4.43</span>
           <h1>获取章鱼带货 Windows 版安装包</h1>
-          <p class="lead">v1.4.43 已发布，需要下载安装后再运行。本次优化了混剪画面清晰度，新增多封面配置，并优化自动发布模式 8 的画质。Windows 安装包直链仍在维护中，请通过微信 aff22g 获取最新版安装包和账号申请方式。</p>
+          <p class="lead">v1.4.43 已发布。本次优化了混剪画面清晰度，新增多封面配置，并优化自动发布模式 8 的画质。Windows 安装包直链仍在维护中，安装包与登录账号统一通过微信 <strong>aff22g</strong> 发放——扫码或复制微信号，加好友就能要。</p>
           <div class="actions">
-            <a class="btn primary" href="#account" data-download>联系微信获取安装包</a>
-            <a class="btn" href="https://share.feijipan.com/s/JldJV5ei" target="_blank" rel="nofollow noopener">下载算法包</a>
-            <a class="btn" href="tutorial.html">先看教程演示</a>
+            <button type="button" class="btn primary dlx-btn-lg" data-copy-wechat data-download>一键复制微信号 aff22g</button>
+            <a class="btn dlx-btn-lg" href="https://share.feijipan.com/s/JldJV5ei" target="_blank" rel="nofollow noopener">下载算法包</a>
           </div>
+          <p class="dlx-status dlx-status--left" id="dlx-status" data-copy-status role="status" aria-live="polite">点按钮即可复制微信号，复制失败会提示你手动复制。</p>
+          <div class="dlx-trust">
+            <span class="dlx-pill">版本 v1.4.43 x64</span>
+            <span class="dlx-pill">Windows 10 / 11</span>
+            <span class="dlx-pill">推荐 Chrome 129-136</span>
+            <span class="dlx-pill">Mac 版暂无</span>
+          </div>
+          <p class="dlx-hint">想先了解流程？可以先看<a href="tutorial.html">工作流教程（文字版，演示视频整理中）</a>，也可以直接扫码加微信。</p>
         </div>
-        <aside class="download-panel">
-          <h3>版本信息</h3>
-          <ul class="plain-list">
-            <li>软件版本：v1.4.43 x64</li>
-            <li>算法包：<a href="https://share.feijipan.com/s/JldJV5ei" target="_blank" rel="nofollow noopener">飞鸡盘下载</a></li>
-            <li>适用系统：Windows 10 / Windows 11</li>
-            <li>Mac Intel：暂无</li>
-            <li>Mac M1：暂无</li>
-            <li>推荐 Chrome：129-136</li>
-          </ul>
+        <aside class="dlx-card" id="wechat-card">
+          <h3>扫码加微信，直接要安装包</h3>
+          <p class="dlx-sub">加好友后备注「账号数量 + 主营类目 + 是否用磁力金牛」，好一次把安装包和权益配好。</p>
+          <div class="dlx-qr">
+            <img src="assets/images/wechat-qr.webp" width="600" height="600" alt="章鱼带货官方微信 aff22g 的二维码，扫码添加好友获取 Windows 安装包" loading="lazy" decoding="async">
+          </div>
+          <div class="dlx-wxid"><code id="dlx-wxcode">aff22g</code></div>
+          <div class="dlx-card-action">
+            <button type="button" class="btn primary" data-copy-wechat data-download>复制微信号</button>
+          </div>
+          <p class="dlx-status" data-copy-status role="status" aria-live="polite"></p>
         </aside>
       </div>
     </section>
 
-    <section class="section band">
+    <section id="install" class="section band">
       <div class="container">
-        <div class="section-head">
-          <div><span class="eyebrow">安装配置</span><h2>安装后先完成基础环境设置</h2></div>
-          <p>章鱼带货会调用浏览器和本地缓存能力，建议先把 Chrome 路径、缓存、代理和 AI 相关选项配置好。</p>
-        </div>
-        <div class="grid-3">
-          <article class="card"><div class="icon-chip">1</div><h3>获取安装包</h3><p>联系微信 aff22g 获取当前可用安装包。若系统提示需要管理员权限，请按系统提示操作。</p></article>
-          <article class="card"><div class="icon-chip">2</div><h3>配置 Chrome</h3><p>进入系统设置，选择本机谷歌浏览器 exe 路径。软件也可能提供自动查找能力。</p></article>
-          <article class="card"><div class="icon-chip">3</div><h3>登录账号</h3><p>使用服务商分配的账号和密码登录，并勾选用户协议与隐私政策。</p></article>
+        <div class="dlx-install">
+          <div class="dlx-install-head">
+            <span class="eyebrow">安装包</span>
+            <span class="dlx-tbd">直链维护中</span>
+          </div>
+          <h2>Windows 安装包（v1.4.43 x64）</h2>
+          <p class="dlx-install-note">当前没有可用的安装包直链，所以这里不放下载地址：按钮会复制微信号 <strong>aff22g</strong>，加好友后由服务商直接发你当前可用安装包。系统提示需要管理员权限时，按系统提示操作即可。</p>
+          <div class="dlx-install-actions">
+            <button type="button" class="btn primary dlx-btn-lg" data-copy-wechat data-download>复制微信号，获取最新版安装包</button>
+            <a class="btn dlx-btn-lg" href="https://share.feijipan.com/s/JldJV5ei" target="_blank" rel="nofollow noopener">算法包（飞鸡盘下载）</a>
+          </div>
+          <p class="dlx-status dlx-status--left" data-copy-status role="status" aria-live="polite"></p>
+          <p class="dlx-hint">想直接扫码？<a href="#wechat-card">看页面顶部的微信二维码</a></p>
+          <ul class="plain-list dlx-version-list">
+            <li>软件版本：v1.4.43 x64</li>
+            <li>适用系统：Windows 10 / Windows 11</li>
+            <li>Mac Intel / Mac M1：暂无</li>
+            <li>推荐 Chrome：129-136</li>
+            <li>算法包：<a href="https://share.feijipan.com/s/JldJV5ei" target="_blank" rel="nofollow noopener">share.feijipan.com/s/JldJV5ei</a></li>
+          </ul>
         </div>
       </div>
     </section>
 
-    <section id="account" class="section">
+    <section class="section">
+      <div class="container">
+        <div class="section-head">
+          <div><span class="eyebrow">怎么拿到并跑起来</span><h2>三步：加微信 → 拿安装包 → 配 Chrome 登录</h2></div>
+          <p>软件会调用浏览器和本地缓存能力，所以装完先配好 Chrome 路径，再用服务商分配的账号登录。</p>
+        </div>
+        <div class="dlx-steps">
+          <article class="dlx-step">
+            <div class="num">1</div>
+            <h3>加微信说明需求</h3>
+            <p>扫码或复制微信号 aff22g，加好友后备注账号数量、主营类目、是否需要批量发布、是否使用磁力金牛投放，便于快速配置权益。</p>
+            <span class="arrow" aria-hidden="true">→</span>
+          </article>
+          <article class="dlx-step">
+            <div class="num">2</div>
+            <h3>拿安装包并安装</h3>
+            <p>从服务商处拿到当前可用安装包（Windows 10 / 11），下载安装后再运行。若系统提示需要管理员权限，按系统提示操作。</p>
+            <span class="arrow" aria-hidden="true">→</span>
+          </article>
+          <article class="dlx-step">
+            <div class="num">3</div>
+            <h3>配 Chrome 并登录</h3>
+            <p>进入系统设置，选择本机谷歌浏览器 exe 路径（也可能提供自动查找），再用服务商分配的账号密码登录，并勾选用户协议与隐私政策。</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="account" class="section band">
       <div class="container">
         <div class="section-head">
           <div><span class="eyebrow">账号申请</span><h2>联系微信 aff22g 免费申请账号</h2></div>
@@ -158,8 +206,81 @@
       </div>
     </section>
   </main>
-  <footer class="site-footer"><div class="container footer-grid"><div><strong>章鱼带货</strong><p>软件下载与账号申请页面。</p></div><div><strong>产品</strong><a href="index.html">首页</a><a href="features.html">功能</a><a href="articles.html">文章</a></div><div><strong>教程</strong><a href="tutorial.html">视频教程</a><a href="faq.html">常见问题</a></div><div><strong>下载</strong><a href="#account">微信获取安装包</a><a href="download.html">下载说明</a></div></div>    <div class="container footer-legal"><a href="https://beian.miit.gov.cn/" rel="nofollow">蜀ICP备2026034114号-3</a><span>官网：www.zhangyudaihuo.cn</span></div>
+  <footer class="site-footer"><div class="container footer-grid"><div><strong>章鱼带货</strong><p>软件下载与账号申请页面。</p></div><div><strong>产品</strong><a href="index.html">首页</a><a href="features.html">功能</a><a href="articles.html">文章</a></div><div><strong>教程</strong><a href="tutorial.html">工作流教程</a><a href="faq.html">常见问题</a></div><div><strong>下载</strong><a href="#wechat-card">加微信拿安装包</a><a href="#install">安装包说明</a></div></div>    <div class="container footer-legal"><a href="https://beian.miit.gov.cn/" rel="nofollow">蜀ICP备2026034114号-3</a><span>官网：www.zhangyudaihuo.cn</span></div>
   </footer>
   <script src="assets/site.js" defer></script>
+  <script>
+    (function () {
+      'use strict';
+      var WECHAT_ID = 'aff22g';
+      var codeEl = document.getElementById('dlx-wxcode');
+      var statusNodes = document.querySelectorAll('[data-copy-status]');
+
+      function setStatus(msg, kind) {
+        for (var i = 0; i < statusNodes.length; i++) {
+          statusNodes[i].textContent = msg;
+          statusNodes[i].className = statusNodes[i].className.replace(/\s*is-(ok|warn)/g, '');
+          if (kind) { statusNodes[i].className += ' is-' + kind; }
+        }
+      }
+
+      function flashButton(btn) {
+        if (!btn || !btn.dataset) { return; }
+        if (!btn.dataset.origLabel) { btn.dataset.origLabel = btn.textContent; }
+        btn.textContent = '已复制：' + WECHAT_ID + ' ✓';
+        clearTimeout(btn._flashTimer);
+        btn._flashTimer = setTimeout(function () { btn.textContent = btn.dataset.origLabel; }, 2600);
+      }
+
+      function legacyCopy(text) {
+        var ta = document.createElement('textarea');
+        ta.value = text;
+        ta.setAttribute('readonly', '');
+        ta.style.position = 'fixed';
+        ta.style.top = '-1000px';
+        ta.style.opacity = '0';
+        document.body.appendChild(ta);
+        ta.select();
+        var ok = false;
+        try { ok = document.execCommand('copy'); } catch (e) { ok = false; }
+        document.body.removeChild(ta);
+        return ok;
+      }
+
+      function manualHint() {
+        if (codeEl && window.getSelection) {
+          var sel = window.getSelection();
+          var range = document.createRange();
+          range.selectNodeContents(codeEl);
+          sel.removeAllRanges();
+          sel.addRange(range);
+        }
+        setStatus('浏览器拦了自动复制。微信号已选中，按 Ctrl+C 复制：' + WECHAT_ID, 'warn');
+      }
+
+      function copyWechat(btn) {
+        var done = function () {
+          setStatus('已复制：' + WECHAT_ID + '，去微信「添加朋友」粘贴即可', 'ok');
+          flashButton(btn);
+        };
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(WECHAT_ID).then(done, function () {
+            if (legacyCopy(WECHAT_ID)) { done(); } else { manualHint(); }
+          });
+        } else if (legacyCopy(WECHAT_ID)) {
+          done();
+        } else {
+          manualHint();
+        }
+      }
+
+      document.addEventListener('click', function (ev) {
+        var btn = ev.target.closest ? ev.target.closest('[data-copy-wechat]') : null;
+        if (!btn) { return; }
+        ev.preventDefault();
+        copyWechat(btn);
+      });
+    })();
+  </script>
 </body>
 </html>
