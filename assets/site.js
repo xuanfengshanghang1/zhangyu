@@ -9,7 +9,7 @@
 
   document.querySelectorAll(".nav-links a").forEach(function (link) {
     var href = (link.getAttribute("href") || "").split("#")[0];
-    var target = href || "index.html";
+    var target = href.split("/").pop() || "index.html";
     if (target === currentPath) {
       link.classList.add("is-current");
       link.setAttribute("aria-current", "page");
