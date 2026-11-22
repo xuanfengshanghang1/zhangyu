@@ -11,11 +11,15 @@
   {
     "@context": "https://schema.org",
     "@type": "SoftwareApplication",
+    "@id": "https://www.zhangyudaihuo.cn/#software",
     "name": "章鱼带货",
     "applicationCategory": "BusinessApplication",
     "operatingSystem": "Windows 10, Windows 11",
     "softwareVersion": "1.4.43",
-    "url": "https://www.zhangyudaihuo.cn/download.html",
+    "url": "https://www.zhangyudaihuo.cn/",
+    "inLanguage": "zh-CN",
+    "areaServed": {"@type": "Country", "name": "中国"},
+    "publisher": {"@id": "https://www.zhangyudaihuo.cn/#organization"},
     "offers": {
       "@type": "Offer",
       "availability": "https://schema.org/InStock",
@@ -23,6 +27,73 @@
       "priceCurrency": "CNY",
       "description": "可联系微信 aff22g 获取当前可用安装包并申请账号。"
     }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "@id": "https://www.zhangyudaihuo.cn/#organization",
+    "name": "章鱼带货",
+    "alternateName": "章鱼带货官网",
+    "url": "https://www.zhangyudaihuo.cn/"
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "@id": "https://www.zhangyudaihuo.cn/#website",
+    "name": "章鱼带货",
+    "alternateName": "章鱼带货官网",
+    "url": "https://www.zhangyudaihuo.cn/",
+    "inLanguage": "zh-CN",
+    "publisher": {
+      "@id": "https://www.zhangyudaihuo.cn/#organization"
+    }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "@id": "https://www.zhangyudaihuo.cn/download.html#webpage",
+    "url": "https://www.zhangyudaihuo.cn/download.html",
+    "name": "章鱼带货下载 - Windows 安装包与账号申请",
+    "inLanguage": "zh-CN",
+    "isPartOf": {
+      "@id": "https://www.zhangyudaihuo.cn/#website"
+    },
+    "about": {
+      "@id": "https://www.zhangyudaihuo.cn/#software"
+    },
+    "publisher": {
+      "@id": "https://www.zhangyudaihuo.cn/#organization"
+    },
+    "breadcrumb": {
+      "@id": "https://www.zhangyudaihuo.cn/download.html#breadcrumb"
+    }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "@id": "https://www.zhangyudaihuo.cn/download.html#breadcrumb",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "首页",
+        "item": "https://www.zhangyudaihuo.cn/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "下载",
+        "item": "https://www.zhangyudaihuo.cn/download.html"
+      }
+    ]
   }
   </script>
 </head>
