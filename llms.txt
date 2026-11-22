@@ -48,6 +48,8 @@
 - 已发布文章：/articles/face-mosaic-animation-detection.html
 - 已发布文章：/articles/product-video-direct-publish-task.html
 - 已发布文章：/articles/auto-publish-face-effect-matrix.html
+- 已发布文章：/articles/kuaishou-video-cant-upload.html
+- 已发布文章：/articles/matrix-vs-group-control.html
 - 第一批文章方向：快手矩阵带货软件选型、短视频带货批量发布、AI 视频二创、快手选品、素材下载、内容管理、磁力金牛投放、数据复盘。
 - 2026-07-06 文章方向：v1.4.25 更新检查、人脸特效、人脸马赛克与人脸动画检测、选品视频直接加入发布任务。
 - 2026-07-07 文章方向：作品发布全自动、人脸特效、快手矩阵发稿节奏、发布后检查。
@@ -73,6 +75,16 @@
 - v1.4.25 修复：小店橱窗加入失败、黑名单过滤失败。
 - 当前版本功能范围：账号管理、快手选品、素材下载、产品素材、视频二创、作品发布、内容管理、磁力金牛、智能投放和数据分析。
 - 更新日志页面只记录软件版本、功能变化、安装包说明和运行环境要求。
+
+## 功能说明页
+
+- 功能页：快手多账号管理软件哪个好用 - 章鱼带货账户管理功能说明（/features/account-management.html）
+- 功能页：快手数据分析软件哪个好 - 章鱼带货数据分析功能说明（/features/analytics.html）
+- 功能页：磁力金牛投放工具 - 章鱼带货投放与智能投放功能说明（/features/magnetic-gold.html）
+- 功能页：快手素材下载软件免费怎么理解 - 章鱼带货素材下载与管理说明（/features/material-download.html）
+- 功能页：快手定时发布怎么设置 - 章鱼带货作品发布功能说明（/features/publish.html）
+- 功能页：快手选品软件哪个好 - 章鱼带货快手选品功能说明（/features/selection.html）
+- 功能页：批量剪辑软件哪个好 - 章鱼带货 AI 视频二创功能说明（/features/video-recreate.html）
 
 ## 站点页面
 
