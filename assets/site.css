@@ -989,20 +989,9 @@ p {
   }
 
   .compare td::before {
+    content: attr(data-th);
     color: var(--accent-dark);
     font-weight: 700;
-  }
-
-  .compare td:nth-child(1)::before {
-    content: "模块";
-  }
-
-  .compare td:nth-child(2)::before {
-    content: "主要用途";
-  }
-
-  .compare td:nth-child(3)::before {
-    content: "效率价值";
   }
 }
 

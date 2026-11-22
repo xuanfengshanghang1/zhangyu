@@ -7,12 +7,14 @@
     python scripts/check_site.py --offline    # 跳过 HTTP，只做仓库内一致性
     python scripts/check_site.py --timeout 20 # 单个 URL 超时秒数，默认 12
 
-检查项:
+检查项（6 项）:
     1) 版本号一致：首页 JSON-LD / download JSON-LD / download 可见文案 / changelog 最新一条 / llms.txt
     2) sitemap 里的 URL：全部返回 200，且都被至少一个「其它页面」内链引到
     3) 每页 JSON-LD 可解析（JSON 语法 + 必须有 @context/@type）
     4) llms.txt 里列出的页面 URL 都真实存在（站内看文件，外链看 HTTP）
     5) 每页 canonical 与 sitemap 一致（双向：页面 canonical 在 sitemap 里；sitemap 的 HTML 项都有人认领）
+    6) 每个 <table class="compare"> 的每个 <td> 都带 data-th，且与 thead 对应列的表头文字一致
+       （手机端 .compare thead 被隐藏，td::before 用 content: attr(data-th) 显示标签；缺属性=空白标签）
 
 退出码: 0 = 全绿；1 = 存在不一致项。
 """
@@ -93,7 +95,7 @@ def load_pages(repo: Path) -> dict[str, str]:
 
 # --------------------------------------------------------------------- check 1
 def check_version(repo: Path, pages: dict[str, str]) -> None:
-    print("[1/5] 版本号一致性（5 处）")
+    print("[1/6] 版本号一致性（5 处）")
     found: list[tuple[str, int, str, str]] = []  # (来源, 行号, 值, 说明)
 
     def from_jsonld(path: str) -> None:
@@ -133,7 +135,7 @@ def check_version(repo: Path, pages: dict[str, str]) -> None:
 
 # --------------------------------------------------------------------- check 2
 def check_sitemap(repo: Path, pages: dict[str, str], fetcher: Fetcher) -> None:
-    print("[2/5] sitemap URL：可访问性 + 内链覆盖")
+    print("[2/6] sitemap URL：可访问性 + 内链覆盖")
     root = ET.parse(repo / "sitemap.xml").getroot()
     locs = [e.text.strip() for e in root.iter(SITEMAP_NS + "loc") if e.text]
     print(f"  sitemap loc 数 = {len(locs)}")
@@ -170,7 +172,7 @@ def check_sitemap(repo: Path, pages: dict[str, str], fetcher: Fetcher) -> None:
 
 # --------------------------------------------------------------------- check 3
 def check_jsonld(pages: dict[str, str]) -> None:
-    print("[3/5] 每页 JSON-LD 可解析")
+    print("[3/6] 每页 JSON-LD 可解析")
     total, bad = 0, 0
     for page, text in pages.items():
         blocks = LD_RE.findall(text)
@@ -191,7 +193,7 @@ def check_jsonld(pages: dict[str, str]) -> None:
 
 # --------------------------------------------------------------------- check 4
 def check_llms(repo: Path, fetcher: Fetcher) -> None:
-    print("[4/5] llms.txt 里列出的页面 URL 是否真实存在")
+    print("[4/6] llms.txt 里列出的页面 URL 是否真实存在")
     text = (repo / "llms.txt").read_text(encoding="utf-8")
     urls: list[tuple[int, str]] = []
     for ln, line in enumerate(text.splitlines(), 1):
@@ -219,7 +221,7 @@ def check_llms(repo: Path, fetcher: Fetcher) -> None:
 
 # --------------------------------------------------------------------- check 5
 def check_canonical(repo: Path, pages: dict[str, str]) -> None:
-    print("[5/5] canonical 与 sitemap 一致")
+    print("[5/6] canonical 与 sitemap 一致")
     root = ET.parse(repo / "sitemap.xml").getroot()
     locs = {norm(e.text.strip()) for e in root.iter(SITEMAP_NS + "loc") if e.text}
     missing_canon, not_in_sitemap, claimed = [], [], set()
@@ -249,6 +251,37 @@ def check_canonical(repo: Path, pages: dict[str, str]) -> None:
     print(f"  ==> {'一致' if not (missing_canon or not_in_sitemap or orphan_locs) else '有不一致'}\n")
 
 
+# --------------------------------------------------------------------- check 6
+def check_compare_labels(pages):
+    """手机端标签来源：.compare 的每个 td 必须带 data-th，并与 thead 对应列一致。"""
+    print("[6/6] .compare 表格 td 的 data-th（手机端标签来源）")
+    TABLE = re.compile(r'<table[^>]*class="[^"]*\bcompare\b[^"]*"[^>]*>(.*?)</table>', re.S | re.I)
+    TH = re.compile(r"<th[^>]*>(.*?)</th>", re.S | re.I)
+    TD = re.compile(r"<td([^>]*)>(.*?)</td>", re.S | re.I)
+    TR = re.compile(r"<tr[^>]*>(.*?)</tr>", re.S | re.I)
+    tables = cells = missing = mismatch = 0
+    for page, text in pages.items():
+        for ti, body in enumerate(TABLE.findall(text), 1):
+            tables += 1
+            thead = re.search(r"<thead>(.*?)</thead>", body, re.S | re.I)
+            heads = [re.sub(r"<[^>]+>", "", h).strip() for h in TH.findall(thead.group(1))] if thead else []
+            tbody = re.search(r"<tbody>(.*?)</tbody>", body, re.S | re.I)
+            rows = TR.findall(tbody.group(1) if tbody else body)
+            for ri, row in enumerate(rows, 1):
+                for ci, (attrs, _inner) in enumerate(TD.findall(row), 1):
+                    cells += 1
+                    m = re.search(r'data-th="([^"]*)"', attrs)
+                    if not m or not m.group(1).strip():
+                        missing += 1
+                        ISSUES.append(f"[表格] {page} 第{ti}张表 第{ri}行第{ci}列 td 缺 data-th")
+                    elif heads and ci <= len(heads) and m.group(1).strip() != heads[ci - 1]:
+                        mismatch += 1
+                        ISSUES.append(
+                            f"[表格] {page} 第{ti}张表 第{ri}行第{ci}列 data-th={m.group(1)!r} 与表头 {heads[ci-1]!r} 不一致")
+    print(f"  表格={tables} td={cells} 缺 data-th={missing} 与表头不符={mismatch}")
+    print(f"  ==> {'通过' if not missing and not mismatch else '有问题'}\n")
+
+
 def main() -> int:
     ap = argparse.ArgumentParser(description="章鱼带货官网站点一致性校验")
     ap.add_argument("--repo", default=str(Path(__file__).resolve().parent.parent), help="仓库根目录")
@@ -270,13 +303,14 @@ def main() -> int:
     check_jsonld(pages)
     check_llms(repo, fetcher)
     check_canonical(repo, pages)
+    check_compare_labels(pages)
 
     if ISSUES:
         print(f"==== 发现 {len(ISSUES)} 项不一致 ====")
         for i, issue in enumerate(ISSUES, 1):
             print(f"  {i:>2}. {issue}")
         return 1
-    print("==== 全绿：5 项检查全部通过 ====")
+    print("==== 全绿：6 项检查全部通过 ====")
     return 0
 
 

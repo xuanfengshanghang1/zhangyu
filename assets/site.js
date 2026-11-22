@@ -3,6 +3,9 @@
   if (window.location.pathname.indexOf("/articles/") !== -1) {
     currentPath = "articles.html";
   }
+  if (window.location.pathname.indexOf("/features/") !== -1) {
+    currentPath = "features.html";
+  }
 
   document.querySelectorAll(".nav-links a").forEach(function (link) {
     var href = (link.getAttribute("href") || "").split("#")[0];
