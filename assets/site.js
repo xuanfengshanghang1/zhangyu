@@ -16,6 +16,53 @@
     }
   });
 
+  var nav = document.querySelector(".nav");
+  var navLinks = document.querySelector(".nav-links");
+  if (nav && navLinks) {
+    navLinks.id = navLinks.id || "primary-nav";
+
+    var toggle = document.createElement("button");
+    toggle.type = "button";
+    toggle.className = "nav-toggle";
+    toggle.setAttribute("aria-controls", navLinks.id);
+    toggle.setAttribute("aria-expanded", "false");
+    toggle.setAttribute("aria-label", "打开导航菜单");
+    toggle.innerHTML = '<span class="nav-toggle__bars" aria-hidden="true"></span><span class="nav-toggle__text">菜单</span>';
+    nav.insertBefore(toggle, navLinks);
+
+    var setNav = function (open) {
+      nav.classList.toggle("is-open", open);
+      toggle.setAttribute("aria-expanded", open ? "true" : "false");
+      toggle.setAttribute("aria-label", open ? "关闭导航菜单" : "打开导航菜单");
+    };
+
+    toggle.addEventListener("click", function () {
+      setNav(!nav.classList.contains("is-open"));
+    });
+
+    navLinks.addEventListener("click", function (event) {
+      if (event.target.closest("a")) setNav(false);
+    });
+
+    document.addEventListener("keydown", function (event) {
+      if (event.key === "Escape" && nav.classList.contains("is-open")) {
+        setNav(false);
+        toggle.focus();
+      }
+    });
+
+    document.addEventListener("click", function (event) {
+      if (nav.classList.contains("is-open") && !nav.contains(event.target)) setNav(false);
+    });
+
+    var wide = window.matchMedia("(min-width: 981px)");
+    var syncWide = function () {
+      if (wide.matches) setNav(false);
+    };
+    if (wide.addEventListener) wide.addEventListener("change", syncWide);
+    else if (wide.addListener) wide.addListener(syncWide);
+  }
+
   var links = document.querySelectorAll("[data-download]");
 
   links.forEach(function (link) {
@@ -86,9 +133,11 @@
     var closeButton = lightbox.querySelector(".image-lightbox__actions button");
     var lastFocusedElement = null;
 
+    // 高清图用同名 full-size webp（1800×925，约 60-95KB），
+    // 不再回落到 3378×1736 的 png（约 200-900KB），省约 88% 体积。
     var getFullSrc = function (src) {
       if (!src) return "";
-      return src.replace("-thumb.webp", ".png").replace(".webp", ".png");
+      return src.replace("-thumb.webp", ".webp");
     };
 
     var closeLightbox = function () {
@@ -137,5 +186,32 @@
         closeLightbox();
       }
     });
+  }
+
+  // 滚动显现：与 02-neo-brutal 变体同一套逻辑。
+  // 安全网：观察器没触发时（无头截图、打印、异常滚动容器）2.6s 后强制可见，
+  // 绝不把内容留在隐藏态。prefers-reduced-motion 直接全部可见。
+  var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var revealTargets = document.querySelectorAll("[data-reveal]");
+  var revealAll = function () {
+    revealTargets.forEach(function (el) { el.classList.add("is-in"); });
+  };
+  window.addEventListener("beforeprint", revealAll);
+  setTimeout(revealAll, 2600);
+  if (!reduceMotion && "IntersectionObserver" in window && revealTargets.length) {
+    var revealObserver = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("is-in");
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { rootMargin: "0px 0px -8% 0px", threshold: 0.06 });
+    revealTargets.forEach(function (el) {
+      el.classList.add("zy-reveal");
+      revealObserver.observe(el);
+    });
+  } else {
+    revealTargets.forEach(function (el) { el.classList.add("is-in"); });
   }
 })();

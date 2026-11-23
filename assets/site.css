@@ -801,8 +801,70 @@ p {
   color: #d8dee8;
 }
 
-.mobile-toggle {
+/* 移动端导航开关：JS 注入 .nav-toggle；无 JS 时导航保持展开可用 */
+.nav-toggle {
   display: none;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-width: 44px;
+  min-height: 44px;
+  padding: 8px 12px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--surface);
+  color: var(--ink);
+  font: inherit;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.nav-toggle:hover {
+  border-color: rgba(240, 138, 50, 0.62);
+  color: var(--accent-dark);
+}
+
+.nav-toggle__bars,
+.nav-toggle__bars::before,
+.nav-toggle__bars::after {
+  display: block;
+  width: 18px;
+  height: 2px;
+  border-radius: 2px;
+  background: currentColor;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.nav-toggle__bars {
+  position: relative;
+}
+
+.nav-toggle__bars::before,
+.nav-toggle__bars::after {
+  content: "";
+  position: absolute;
+  left: 0;
+}
+
+.nav-toggle__bars::before {
+  top: -6px;
+}
+
+.nav-toggle__bars::after {
+  top: 6px;
+}
+
+.nav.is-open .nav-toggle__bars {
+  background: transparent;
+}
+
+.nav.is-open .nav-toggle__bars::before {
+  transform: translateY(6px) rotate(45deg);
+}
+
+.nav.is-open .nav-toggle__bars::after {
+  transform: translateY(-6px) rotate(-45deg);
 }
 
 @media (max-width: 980px) {
@@ -833,7 +895,68 @@ p {
     position: static;
   }
 
+  /* 无 JS 兜底：导航横向可滚动，始终可达 */
   .nav-links {
+    display: flex;
+    order: 3;
+    flex-basis: 100%;
+    gap: 4px;
+    overflow-x: auto;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .nav-links::-webkit-scrollbar {
+    display: none;
+  }
+
+  .nav-links a {
+    padding: 12px 10px;
+    white-space: nowrap;
+  }
+
+  /* 有 JS：收起为下拉面板，由 .nav-toggle 控制 */
+  .nav:has(.nav-toggle) {
+    flex-wrap: wrap;
+    row-gap: 0;
+  }
+
+  .nav:has(.nav-toggle) .nav-toggle {
+    display: inline-flex;
+    order: 2;
+  }
+
+  .nav:has(.nav-toggle) .nav-links {
+    display: none;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 2px;
+    overflow: visible;
+    margin: 0 0 12px;
+    padding: 8px;
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    background: var(--surface);
+  }
+
+  .nav:has(.nav-toggle).is-open .nav-links {
+    display: flex;
+  }
+
+  .nav:has(.nav-toggle) .nav-links a {
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+    padding: 10px 12px;
+    border-radius: 6px;
+  }
+
+  .nav:has(.nav-toggle) .nav-links a:hover,
+  .nav:has(.nav-toggle) .nav-links a.is-current {
+    background: rgba(240, 138, 50, 0.1);
+  }
+
+  .nav:has(.nav-toggle) .nav-links a::after {
     display: none;
   }
 }
@@ -844,28 +967,23 @@ p {
   }
 
   .nav {
-    width: calc(100vw - 24px);
-    max-width: calc(100vw - 24px);
-    position: relative;
-    display: grid;
-    grid-template-columns: minmax(0, 1fr);
+    width: calc(100% - 24px);
+    max-width: calc(100% - 24px);
+    min-height: 60px;
     gap: 10px;
-    padding-right: 76px;
   }
 
   .container {
-    width: calc(100vw - 36px);
-    max-width: calc(100vw - 36px);
+    width: calc(100% - 32px);
+    max-width: calc(100% - 32px);
   }
 
+  /* CTA 回到常规流，避免 fixed 遮挡内容；点击区 ≥44px */
   .nav-cta {
-    position: fixed;
-    top: 14px;
-    right: 12px;
+    position: static;
     display: flex;
-    z-index: 2;
     min-width: 0;
-    justify-self: end;
+    margin-left: auto;
   }
 
   .nav-cta .btn.ghost {
@@ -873,24 +991,23 @@ p {
   }
 
   .nav-cta .btn.primary {
-    position: relative;
-    display: inline-flex;
-    width: 64px;
-    min-height: 40px;
-    padding: 8px 0;
+    min-width: 76px;
+    min-height: 44px;
+    padding: 10px 14px;
     font-size: 14px;
     white-space: nowrap;
-    overflow: hidden;
-    color: transparent;
   }
 
-  .nav-cta .btn.primary::after {
-    content: "下载";
-    position: absolute;
-    inset: 0;
-    display: grid;
-    place-items: center;
-    color: #fff;
+  .nav:has(.nav-toggle) .nav-cta {
+    order: 1;
+  }
+
+  .nav:has(.nav-toggle) .nav-toggle {
+    order: 2;
+  }
+
+  .nav-toggle__text {
+    display: none;
   }
 
   .grid-3,
@@ -1312,11 +1429,7 @@ p {
   }
 
   .nav-links a {
-    padding: 0;
-  }
-
-  .nav-cta .btn.primary::after {
-    content: "下载";
+    padding: 10px 12px;
   }
 }
 
@@ -1605,4 +1718,870 @@ p {
   border: 1px solid var(--line);
   border-radius: var(--radius);
   background: #fff;
+}
+
+/* ============================================================
+   排版与视觉精修层（2026-11）
+   目标：中文可读性、垂直节奏、层级对比、装饰质感。
+   只增量覆盖，不改动上方既有结构规则。
+   ============================================================ */
+
+:root {
+  /* 中文优先字体栈：先中文字形，再回落西文 */
+  --font-zh: "PingFang SC", "HarmonyOS Sans SC", "Microsoft YaHei UI",
+    "Microsoft YaHei", "Source Han Sans SC", "Noto Sans SC", "Hiragino Sans GB", sans-serif;
+  --font-num: "Inter", "SF Pro Display", "Segoe UI", var(--font-zh);
+
+  /* 8px 基准间距节奏 */
+  --sp-1: 4px;
+  --sp-2: 8px;
+  --sp-3: 12px;
+  --sp-4: 16px;
+  --sp-5: 24px;
+  --sp-6: 32px;
+  --sp-7: 48px;
+  --sp-8: 64px;
+  --sp-9: 96px;
+
+  --radius-sm: 6px;
+  --radius-lg: 14px;
+  --ring: 0 0 0 1px rgba(255, 255, 255, 0.04);
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.24);
+  --shadow-md: 0 10px 30px rgba(0, 0, 0, 0.26);
+  --shadow-lg: 0 28px 70px rgba(0, 0, 0, 0.38);
+  --ease: cubic-bezier(0.22, 0.61, 0.36, 1);
+
+  font-family: var(--font-zh);
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  /* 中文正文 1.75 行高比 1.65 更透气 */
+  line-height: 1.75;
+  font-size: 16px;
+  font-feature-settings: "kern" 1;
+  text-underline-offset: 3px;
+}
+
+/* 标题：中文收紧字距、加大行高，避免挤在一起 */
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-zh);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  line-height: 1.3;
+  text-wrap: balance;
+}
+
+h1 {
+  font-size: clamp(30px, 4.4vw, 54px);
+  line-height: 1.24;
+  font-weight: 800;
+}
+
+h2 {
+  font-size: clamp(24px, 3vw, 38px);
+  line-height: 1.32;
+}
+
+h3 {
+  font-size: 19px;
+  line-height: 1.45;
+  letter-spacing: 0;
+}
+
+/* 数字与版本号用等宽数字，避免跳动 */
+.metric strong,
+.update-item time,
+.step b,
+.dlx-wxid code,
+.article-meta {
+  font-family: var(--font-num);
+  font-variant-numeric: tabular-nums;
+}
+
+.lead {
+  font-size: clamp(16px, 1.35vw, 18px);
+  line-height: 1.8;
+  margin-top: var(--sp-5);
+}
+
+/* 段落节奏 */
+p + p {
+  margin-top: var(--sp-4);
+}
+
+/* ---------- 垂直节奏 ---------- */
+.section {
+  padding: clamp(56px, 7vw, 96px) 0;
+}
+
+.section.tight {
+  padding: clamp(40px, 5vw, 64px) 0;
+}
+
+.section-head {
+  margin-bottom: var(--sp-6);
+  gap: var(--sp-5);
+}
+
+.grid-2,
+.grid-3,
+.grid-4,
+.article-grid {
+  gap: var(--sp-5);
+}
+
+.flow {
+  gap: var(--sp-4);
+}
+
+/* ---------- 眉标 ---------- */
+.eyebrow {
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  margin-bottom: var(--sp-3);
+}
+
+/* ---------- 卡片质感 ---------- */
+.card,
+.feature-card,
+.faq-item,
+.download-panel,
+.step,
+.update-item,
+.article-card,
+.topic-list article,
+.dlx-card,
+.dlx-step {
+  border-radius: var(--radius-lg);
+  box-shadow: var(--ring), var(--shadow-sm);
+  transition: transform 0.25s var(--ease), border-color 0.25s var(--ease),
+    box-shadow 0.25s var(--ease);
+}
+
+.card,
+.dlx-step {
+  padding: var(--sp-5);
+}
+
+.card:hover,
+.feature-card:hover,
+.article-card:hover,
+.faq-item:hover,
+.step:hover,
+.update-item:hover,
+.dlx-step:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--ring), var(--shadow-md);
+}
+
+/* 图标 chip：渐变底 + 内高光 */
+.icon-chip,
+.dlx-step .num {
+  width: 42px;
+  height: 42px;
+  border-radius: 11px;
+  font-size: 17px;
+  background: linear-gradient(145deg, rgba(240, 138, 50, 0.22), rgba(240, 138, 50, 0.07));
+  border: 1px solid rgba(240, 138, 50, 0.28);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06);
+}
+
+/* ---------- 按钮 ---------- */
+.btn {
+  min-height: 46px;
+  padding: 11px 20px;
+  border-radius: 10px;
+  font-size: 15px;
+  font-weight: 600;
+  transition: transform 0.2s var(--ease), background-color 0.2s var(--ease),
+    border-color 0.2s var(--ease), color 0.2s var(--ease), box-shadow 0.2s var(--ease);
+}
+
+.btn.primary {
+  font-weight: 700;
+  background: linear-gradient(180deg, #f79a45, var(--accent));
+  box-shadow: 0 8px 22px rgba(240, 138, 50, 0.24), inset 0 1px 0 rgba(255, 255, 255, 0.22);
+}
+
+.btn.primary:hover {
+  background: linear-gradient(180deg, #ffb066, var(--accent-dark));
+  box-shadow: 0 12px 30px rgba(240, 138, 50, 0.32), inset 0 1px 0 rgba(255, 255, 255, 0.26);
+}
+
+.hero-actions {
+  gap: var(--sp-3);
+  margin-top: var(--sp-6);
+}
+
+/* ---------- Hero 装饰 ---------- */
+.hero {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+}
+
+/* AI 生成的暗色光晕纹理，纯装饰，不参与无障碍树 */
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  background-image: url("images/hero-glow.webp");
+  background-size: cover;
+  background-position: center right;
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+/* 顶部渐隐，保证导航与标题区域纯净 */
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(180deg, var(--bg) 0%, rgba(13, 17, 23, 0.72) 42%, rgba(13, 17, 23, 0.9) 100%);
+  pointer-events: none;
+}
+
+.hero-shot {
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+  border-color: rgba(167, 178, 192, 0.22);
+}
+
+.hero-shot img {
+  opacity: 1;
+}
+
+/* ---------- 指标条 ---------- */
+.metric {
+  border-radius: var(--radius-sm);
+  border-left-width: 2px;
+  padding: var(--sp-3) var(--sp-4);
+}
+
+.metric strong {
+  font-size: 24px;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+}
+
+.metric span {
+  font-size: 12.5px;
+  line-height: 1.5;
+}
+
+/* ---------- 分区带：细纹理 ---------- */
+.band {
+  position: relative;
+  isolation: isolate;
+}
+
+.band::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background-image: url("images/section-band.webp");
+  background-size: cover;
+  background-position: center;
+  opacity: 0.22;
+  pointer-events: none;
+}
+
+/* ---------- 流程步骤 ---------- */
+.step {
+  padding: var(--sp-5) var(--sp-4);
+}
+
+.step b {
+  display: inline-block;
+  font-size: 13px;
+  letter-spacing: 0.06em;
+  margin-bottom: var(--sp-2);
+}
+
+.step h3 {
+  margin-bottom: var(--sp-2);
+}
+
+.step p {
+  font-size: 14.5px;
+  line-height: 1.7;
+}
+
+/* ---------- 功能卡 ---------- */
+.feature-card .copy {
+  padding: var(--sp-5);
+}
+
+.feature-card .copy h3 {
+  margin-bottom: var(--sp-2);
+}
+
+.feature-card .copy p {
+  font-size: 14.5px;
+  line-height: 1.75;
+}
+
+.feature-card::after {
+  border-radius: 999px;
+  padding: 6px 11px;
+  font-size: 11.5px;
+  backdrop-filter: blur(6px);
+}
+
+/* ---------- 文章正文可读性 ---------- */
+.article-body {
+  font-size: 17px;
+  line-height: 1.85;
+}
+
+.article-body p {
+  margin-top: var(--sp-4);
+}
+
+.article-body h2 {
+  margin-top: var(--sp-7);
+  margin-bottom: var(--sp-4);
+  padding-bottom: var(--sp-2);
+  border-bottom: 1px solid var(--line);
+  font-size: clamp(21px, 2.2vw, 27px);
+}
+
+.article-body h3 {
+  margin-top: var(--sp-5);
+  font-size: 18px;
+}
+
+.article-body section + section {
+  margin-top: var(--sp-7);
+}
+
+.article-toc {
+  border-radius: var(--radius-lg);
+  padding: var(--sp-5);
+}
+
+.article-toc a {
+  line-height: 1.6;
+  padding: 3px 0;
+}
+
+.article-card {
+  padding: var(--sp-5);
+}
+
+.article-cta,
+.notice,
+.dlx-install {
+  border-radius: var(--radius-lg);
+}
+
+/* ---------- 表格 ---------- */
+.compare th,
+.compare td {
+  padding: var(--sp-4);
+  line-height: 1.7;
+}
+
+.compare th {
+  font-size: 14px;
+  letter-spacing: 0.02em;
+}
+
+/* ---------- FAQ / 时间线 ---------- */
+.faq-item {
+  padding: var(--sp-5);
+}
+
+.faq-item h3 {
+  margin-bottom: var(--sp-3);
+}
+
+.timeline li + li {
+  margin-top: var(--sp-4);
+}
+
+.plain-list li + li {
+  margin-top: var(--sp-2);
+}
+
+/* ---------- 页脚 ---------- */
+.site-footer {
+  padding: var(--sp-8) 0 var(--sp-6);
+}
+
+.footer-grid {
+  gap: var(--sp-6);
+}
+
+.site-footer a {
+  margin-top: var(--sp-2);
+  font-size: 14.5px;
+}
+
+/* ---------- 移动端收敛 ---------- */
+@media (max-width: 640px) {
+  body {
+    font-size: 15.5px;
+    line-height: 1.78;
+  }
+
+  .section {
+    padding: 48px 0;
+  }
+
+  .grid-2,
+  .grid-3,
+  .grid-4,
+  .article-grid {
+    gap: var(--sp-4);
+  }
+
+  .card,
+  .article-card,
+  .faq-item,
+  .feature-card .copy,
+  .dlx-card {
+    padding: var(--sp-4);
+  }
+
+  .hero::before {
+    opacity: 0.34;
+  }
+
+  .metric-row {
+    gap: var(--sp-2);
+  }
+
+  .article-body {
+    font-size: 16.5px;
+  }
+
+  .btn {
+    min-height: 46px;
+  }
+}
+
+/* 尊重减少动效偏好 */
+@media (prefers-reduced-motion: reduce) {
+  .card:hover,
+  .feature-card:hover,
+  .article-card:hover,
+  .faq-item:hover,
+  .step:hover,
+  .update-item:hover,
+  .dlx-step:hover,
+  .btn:hover {
+    transform: none;
+  }
+}
+
+/* 打印：去掉装饰与暗底，省墨且可读 */
+@media print {
+  .hero::before,
+  .hero::after,
+  .band::before {
+    display: none;
+  }
+
+  body {
+    background: #fff;
+    color: #000;
+  }
+}
+
+/* ---------- 教程十步工作流 ---------- */
+.tut-steps {
+  display: grid;
+  gap: var(--sp-4);
+}
+
+.tut-step {
+  display: grid;
+  grid-template-columns: 56px minmax(0, 1fr);
+  gap: var(--sp-4);
+  padding: var(--sp-5);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  background: var(--surface);
+  box-shadow: var(--ring), var(--shadow-sm);
+  transition: border-color 0.25s var(--ease), box-shadow 0.25s var(--ease);
+}
+
+.tut-step:hover {
+  border-color: rgba(240, 138, 50, 0.42);
+  box-shadow: var(--ring), var(--shadow-md);
+}
+
+.tut-step__num {
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  font-family: var(--font-num);
+  font-size: 18px;
+  font-weight: 800;
+  font-variant-numeric: tabular-nums;
+  color: var(--accent-dark);
+  background: linear-gradient(145deg, rgba(240, 138, 50, 0.22), rgba(240, 138, 50, 0.07));
+  border: 1px solid rgba(240, 138, 50, 0.28);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06);
+}
+
+.tut-step__body h3 {
+  margin-bottom: var(--sp-2);
+}
+
+.tut-step__body p {
+  color: var(--muted);
+  line-height: 1.8;
+}
+
+.tut-step__tip {
+  margin-top: var(--sp-3);
+  padding: var(--sp-3) var(--sp-4);
+  border-left: 2px solid var(--teal);
+  border-radius: var(--radius-sm);
+  background: rgba(120, 200, 194, 0.07);
+  font-size: 14.5px;
+}
+
+.tut-step__tip b {
+  color: var(--teal);
+  font-weight: 700;
+}
+
+@media (max-width: 640px) {
+  .tut-step {
+    grid-template-columns: 40px minmax(0, 1fr);
+    gap: var(--sp-3);
+    padding: var(--sp-4);
+  }
+
+  .tut-step__num {
+    width: 36px;
+    height: 36px;
+    border-radius: 9px;
+    font-size: 15px;
+  }
+}
+
+/* ============================================================
+   动效层：入场、滚动揭示、光效、微交互
+   全部尊重 prefers-reduced-motion；无 JS 时内容默认可见。
+   ============================================================ */
+
+@keyframes zy-fade-up {
+  from { opacity: 0; transform: translate3d(0, 22px, 0); }
+  to   { opacity: 1; transform: none; }
+}
+
+@keyframes zy-fade-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes zy-scale-in {
+  from { opacity: 0; transform: scale(0.965) translate3d(0, 14px, 0); }
+  to   { opacity: 1; transform: none; }
+}
+
+@keyframes zy-glow-drift {
+  0%   { transform: translate3d(0, 0, 0) scale(1); opacity: 0.42; }
+  50%  { transform: translate3d(-2%, -1.5%, 0) scale(1.06); opacity: 0.58; }
+  100% { transform: translate3d(0, 0, 0) scale(1); opacity: 0.42; }
+}
+
+@keyframes zy-sheen {
+  0%   { transform: translateX(-120%) skewX(-18deg); }
+  100% { transform: translateX(320%) skewX(-18deg); }
+}
+
+@keyframes zy-pulse-ring {
+  0%   { box-shadow: 0 0 0 0 rgba(240, 138, 50, 0.42); }
+  70%  { box-shadow: 0 0 0 12px rgba(240, 138, 50, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(240, 138, 50, 0); }
+}
+
+@keyframes zy-bar-grow {
+  from { transform: scaleX(0); }
+  to   { transform: scaleX(1); }
+}
+
+@keyframes zy-float-soft {
+  0%, 100% { transform: translate3d(0, 0, 0); }
+  50%      { transform: translate3d(0, -7px, 0); }
+}
+
+@keyframes zy-caret {
+  0%, 45%  { opacity: 1; }
+  50%, 95% { opacity: 0.15; }
+  100%     { opacity: 1; }
+}
+
+/* ---------- Hero 入场：分层错峰 ---------- */
+.hero .eyebrow {
+  animation: zy-fade-up 0.6s var(--ease) both;
+}
+
+.hero h1 {
+  animation: zy-fade-up 0.72s var(--ease) 0.08s both;
+}
+
+.hero .lead {
+  animation: zy-fade-up 0.72s var(--ease) 0.18s both;
+}
+
+.hero-actions {
+  animation: zy-fade-up 0.7s var(--ease) 0.28s both;
+}
+
+.hero .metric-row {
+  animation: zy-fade-up 0.7s var(--ease) 0.38s both;
+}
+
+.hero-shot {
+  animation: zy-scale-in 0.9s var(--ease) 0.16s both;
+}
+
+/* hero 背景缓慢漂移，制造呼吸感 */
+.hero::before {
+  animation: zy-glow-drift 22s ease-in-out infinite;
+  will-change: transform, opacity;
+}
+
+/* ---------- 滚动揭示（JS 加 .zy-reveal / .is-in） ---------- */
+.zy-reveal {
+  opacity: 0;
+  transform: translate3d(0, 26px, 0);
+  transition: opacity 0.66s var(--ease), transform 0.66s var(--ease);
+  will-change: opacity, transform;
+}
+
+.zy-reveal.is-in {
+  opacity: 1;
+  transform: none;
+}
+
+/* 同组子元素错峰，形成瀑布节奏 */
+.zy-stagger > * {
+  opacity: 0;
+  transform: translate3d(0, 24px, 0);
+  transition: opacity 0.6s var(--ease), transform 0.6s var(--ease);
+}
+
+.zy-stagger.is-in > * {
+  opacity: 1;
+  transform: none;
+}
+
+.zy-stagger.is-in > *:nth-child(1) { transition-delay: 0.04s; }
+.zy-stagger.is-in > *:nth-child(2) { transition-delay: 0.11s; }
+.zy-stagger.is-in > *:nth-child(3) { transition-delay: 0.18s; }
+.zy-stagger.is-in > *:nth-child(4) { transition-delay: 0.25s; }
+.zy-stagger.is-in > *:nth-child(5) { transition-delay: 0.32s; }
+.zy-stagger.is-in > *:nth-child(6) { transition-delay: 0.39s; }
+.zy-stagger.is-in > *:nth-child(7) { transition-delay: 0.46s; }
+.zy-stagger.is-in > *:nth-child(8) { transition-delay: 0.53s; }
+.zy-stagger.is-in > *:nth-child(n+9) { transition-delay: 0.6s; }
+
+/* ---------- 主按钮：掠光 + 按压 ---------- */
+.btn.primary {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.btn.primary::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 42%;
+  z-index: -1;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.34), transparent);
+  transform: translateX(-120%) skewX(-18deg);
+  pointer-events: none;
+}
+
+.btn.primary:hover::before {
+  animation: zy-sheen 0.85s var(--ease);
+}
+
+.btn.primary:active {
+  transform: translateY(1px) scale(0.985);
+}
+
+/* 首屏主 CTA 轻微脉冲，吸引注意但不吵 */
+.hero-actions .btn.primary {
+  animation: zy-pulse-ring 2.8s ease-out 1.2s 3;
+}
+
+/* ---------- 卡片：抬升 + 边框流光 + 图片推近 ---------- */
+.card,
+.feature-card,
+.article-card,
+.faq-item,
+.step,
+.update-item,
+.dlx-step,
+.tut-step {
+  position: relative;
+}
+
+.card::before,
+.dlx-step::before,
+.tut-step::before {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(135deg, rgba(240, 138, 50, 0.55), rgba(120, 200, 194, 0.3) 45%, transparent 70%);
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  mask-composite: exclude;
+  opacity: 0;
+  transition: opacity 0.3s var(--ease);
+  pointer-events: none;
+}
+
+.card:hover::before,
+.dlx-step:hover::before,
+.tut-step:hover::before {
+  opacity: 1;
+}
+
+.feature-card img {
+  transition: transform 0.5s var(--ease), filter 0.3s var(--ease);
+}
+
+.feature-card:hover img {
+  transform: scale(1.045);
+  filter: saturate(1.08) contrast(1.04);
+}
+
+/* 图标 chip：hover 旋转微弹 */
+.icon-chip,
+.dlx-step .num,
+.tut-step__num {
+  transition: transform 0.35s var(--ease), box-shadow 0.35s var(--ease);
+}
+
+.card:hover .icon-chip,
+.dlx-step:hover .num {
+  transform: translateY(-2px) rotate(-6deg) scale(1.06);
+  box-shadow: 0 8px 20px rgba(240, 138, 50, 0.24), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+/* ---------- 眉标圆点呼吸 ---------- */
+.eyebrow::before {
+  animation: zy-caret 2.6s ease-in-out infinite;
+}
+
+/* ---------- 指标条：左侧色条生长 ---------- */
+.metric {
+  position: relative;
+  overflow: hidden;
+}
+
+.zy-stagger.is-in .metric,
+.hero .metric-row .metric {
+  animation: zy-fade-in 0.6s var(--ease) both;
+}
+
+/* ---------- 流程步骤序号浮起 ---------- */
+.step b {
+  transition: transform 0.3s var(--ease), color 0.3s var(--ease);
+}
+
+.step:hover b {
+  transform: translateY(-2px);
+}
+
+/* ---------- 导航下划线滑入（已有）+ 当前项指示 ---------- */
+.nav-links a::after {
+  transition: transform 0.28s var(--ease);
+}
+
+/* ---------- 教程步骤：进入时序号弹入 ---------- */
+.tut-step.is-in .tut-step__num,
+.zy-stagger.is-in .tut-step__num {
+  animation: zy-scale-in 0.5s var(--ease) both;
+}
+
+/* ---------- 文章正文段落渐入 ---------- */
+.article-body section.zy-reveal {
+  transform: translate3d(0, 18px, 0);
+}
+
+/* ---------- 页脚链接滑移 ---------- */
+.site-footer a {
+  transition: color 0.22s var(--ease), transform 0.22s var(--ease);
+}
+
+.site-footer a:hover {
+  transform: translateX(3px);
+}
+
+/* ---------- 灯箱开合 ---------- */
+.image-lightbox.is-open {
+  animation: zy-fade-in 0.22s var(--ease);
+}
+
+.image-lightbox.is-open .image-lightbox__panel {
+  animation: zy-scale-in 0.3s var(--ease);
+}
+
+/* ---------- 移动端菜单展开 ---------- */
+@media (max-width: 980px) {
+  .nav:has(.nav-toggle).is-open .nav-links {
+    animation: zy-fade-up 0.28s var(--ease);
+  }
+
+  .nav:has(.nav-toggle).is-open .nav-links a {
+    animation: zy-fade-up 0.34s var(--ease) both;
+  }
+
+  .nav:has(.nav-toggle).is-open .nav-links a:nth-child(1) { animation-delay: 0.02s; }
+  .nav:has(.nav-toggle).is-open .nav-links a:nth-child(2) { animation-delay: 0.05s; }
+  .nav:has(.nav-toggle).is-open .nav-links a:nth-child(3) { animation-delay: 0.08s; }
+  .nav:has(.nav-toggle).is-open .nav-links a:nth-child(4) { animation-delay: 0.11s; }
+  .nav:has(.nav-toggle).is-open .nav-links a:nth-child(5) { animation-delay: 0.14s; }
+  .nav:has(.nav-toggle).is-open .nav-links a:nth-child(6) { animation-delay: 0.17s; }
+  .nav:has(.nav-toggle).is-open .nav-links a:nth-child(7) { animation-delay: 0.2s; }
+}
+
+/* ---------- 无障碍：减少动效时全部关闭 ---------- */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .zy-reveal,
+  .zy-stagger > * {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  .hero::before {
+    animation: none !important;
+  }
 }

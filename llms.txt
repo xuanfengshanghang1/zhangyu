@@ -1,9 +1,56 @@
 # 章鱼带货
 
-章鱼带货是一款面向快手矩阵带货团队的 AI 短视频带货软件。它的核心定位是把快手带货流程中的账户管理、快手选品、素材下载、产品素材管理、视频二创、作品发布、内容管理、磁力金牛投放、智能投放和数据分析整合到一套工作台中。
+> 章鱼带货是一款面向快手矩阵带货团队的 AI 短视频带货软件（Windows x64）。它把账户管理、快手选品、素材下载、产品素材、视频二创、作品发布、内容管理、磁力金牛投放、智能投放和数据分析整合到一套工作台里，让团队按「选品 → 素材 → 二创 → 发布 → 巡检 → 投放 → 复盘」的顺序批量推进。官网提供功能说明、十步工作流教程、运营文章与版本更新记录。
 
 - 官网：https://www.zhangyudaihuo.cn
 - 备案号：蜀ICP备2026034114号-3
+- 说明：章鱼带货不是快手官方产品；平台规则、授权方式与功能位置以实际页面为准。
+- 本文件遵循 llms.txt 约定。每个页面都提供同内容的 Markdown 版本（把 .html 换成 .md），便于语言模型直接读取正文。
+
+## 核心页面
+
+- [章鱼带货，跑通 快手矩阵带货全流程](https://www.zhangyudaihuo.cn/index.md)：章鱼带货是一款面向快手矩阵带货团队的 AI 短视频带货软件，覆盖账户管理、快手选品、素材下载、视频二创、批量发布、内容管理、磁力金牛投放和数据分析。
+- [一套软件覆盖快手矩阵带货运营台前幕后](https://www.zhangyudaihuo.cn/features.md)：了解章鱼带货的账户管理、快手选品、视频下载、产品素材、AI 视频二创、人脸特效、批量发布、内容管理、磁力金牛投放、智能投放和数据分析功能。
+- [章鱼带货教程：快手矩阵带货十步工作流](https://www.zhangyudaihuo.cn/tutorial.md)：章鱼带货教程：按十步工作流讲清安装配置、Chrome 设置、账号绑定分组、快手选品、素材下载、AI 视频二创、批量发布、内容巡检、磁力金牛投放与数据复盘，含实操提示与常见疑问。
+- [获取章鱼带货 Windows 版安装包](https://www.zhangyudaihuo.cn/download.md)：获取章鱼带货 Windows 版安装包，了解推荐运行环境、Chrome 浏览器版本、账号申请方式和安装后配置步骤。
+- [章鱼带货 FAQ](https://www.zhangyudaihuo.cn/faq.md)：章鱼带货常见问题：适合谁使用、支持哪些平台、是否支持 AI 视频二创、如何批量发布、如何下载、如何申请账号、是否支持 Mac。
+- [章鱼带货更新日志](https://www.zhangyudaihuo.cn/changelog.md)：章鱼带货软件更新日志，记录 Windows 安装包版本、运行环境、功能模块和后续版本变更。
+- [快手矩阵带货软件教程与运营方法](https://www.zhangyudaihuo.cn/articles.md)：章鱼带货运营文章栏目，围绕快手矩阵带货软件、AI 视频二创、人脸特效、自动发布、批量发布、快手选品、素材下载、投放复盘等主题持续更新。
+
+## 功能说明页
+
+- [快手多账号管理软件哪个好用：先看账号能不能一次录入、全局复用](https://www.zhangyudaihuo.cn/features/account-management.md)：快手多账号管理软件哪个好用？关键看账号能不能一次录入全局复用、能不能按标签分组筛选。这一页讲清章鱼带货的账户管理能做什么、输入输出、限制，以及「电脑端快手多开」资料里到底没写什么。
+- [快手数据分析软件哪个好：看它能不能回答「这条为什么值得复投」](https://www.zhangyudaihuo.cn/features/analytics.md)：快手数据分析软件哪个好？看它能不能回答「这条为什么能复投」。这一页讲清章鱼带货的数据分析能做什么：按账号和时间看播放、成交金额、商品表现与排序，以及它不负责哪些事。
+- [磁力金牛投放工具要看的三件事：余额、计划状态、投入产出比能不能在一屏看到](https://www.zhangyudaihuo.cn/features/magnetic-gold.md)：磁力金牛投放工具该看什么？余额、日预算、计划状态、消耗、成交额、订单量和 ROI 能不能在一屏看到，看完能不能批量调策略。这一页讲清章鱼带货的磁力金牛与智能投放能做什么、边界在哪。
+- [快手素材下载软件免费这件事，得先把「免的是什么」说清楚](https://www.zhangyudaihuo.cn/features/material-download.md)：快手素材下载软件免费到底免的是什么？这一页讲清章鱼带货的素材下载与产品素材库能做什么：三种导入方式、按商品自动匹配、并行解析，以及限制和失败提示。
+- [快手定时发布怎么设置：把发稿变成队列，而不是整天守着钟点](https://www.zhangyudaihuo.cn/features/publish.md)：快手定时发布怎么设置？关键不是定个时间，而是让发稿变成可排队、可复用、失败可重试的流程。这一页讲清章鱼带货的作品发布能做什么、输入输出、限制和失败提示。
+- [快手选品软件哪个好：先看选完品之后，素材和发布接不接得上](https://www.zhangyudaihuo.cn/features/selection.md)：快手选品软件哪个好，取决于选完品之后素材、二创、发布能不能接上。这一页讲清章鱼带货的快手选品模块能做什么、输入输出是什么、有哪些限制和失败提示。
+- [批量剪辑软件哪个好：比的不是成片速度，是一条素材能出几条、返工几次](https://www.zhangyudaihuo.cn/features/video-recreate.md)：批量剪辑软件哪个好，比的不是成片速度，而是素材怎么进来、任务怎么排队、失败怎么查。这一页讲清章鱼带货的 AI 视频二创能做什么、输入输出是什么、限制和失败提示在哪看。
+
+## 运营文章
+
+- [短视频带货人脸特效怎么用？先看素材类型，再决定是否批量处理](https://www.zhangyudaihuo.cn/articles/ai-face-effect-short-video-workflow.md)：短视频带货人脸特效使用思路，适合快手矩阵带货团队参考。文章讨论真人口播、直播切片、商品展示、人脸马赛克、人脸动画、AI 全自动和作品发布流程。
+- [AI 视频二创软件适合哪些带货团队？别只看成片速度，还要看素材和发布流程](https://www.zhangyudaihuo.cn/articles/ai-video-erchuang-software.md)：AI 视频二创软件适合哪些短视频带货团队？本文从素材量、账号数量、商品节奏、剪辑模板、人工审核和发布复盘几个角度，讲清楚什么时候该上 AI 二创工具，什么时候先不用急。
+- [作品发布全自动加入人脸特效后，快手矩阵发稿怎么安排更稳？](https://www.zhangyudaihuo.cn/articles/auto-publish-face-effect-matrix.md)：作品发布全自动加入人脸特效后，快手矩阵团队如何安排素材、账号、发布时间和发布后复盘？本文结合章鱼带货 v1.4.25 的人脸特效和自动发布流程，整理更稳的发稿方法。
+- [磁力金牛投放数据如何和短视频内容复盘结合？别只看 ROI，也要看素材和账号](https://www.zhangyudaihuo.cn/articles/cili-jinniu-data-content-review.md)：磁力金牛投放数据如何和短视频内容复盘结合？本文从消耗、成交额、订单量、ROI、账号、商品、素材和作品数据入手，说明短视频带货团队怎么把投放结果回到内容优化上。
+- [人脸马赛克和人脸动画检测为什么重要？带货视频二创别只看生成速度](https://www.zhangyudaihuo.cn/articles/face-mosaic-animation-detection.md)：人脸马赛克、人脸动画和人脸检测在短视频带货二创中的作用。文章从素材合规、画面稳定、批量处理、任务队列和发布后检查角度说明如何使用。
+- [快手矩阵批量发布失败怎么排查？账号、草稿、挂车和定时任务要一起看](https://www.zhangyudaihuo.cn/articles/kuaishou-batch-publish-failure-troubleshooting.md)：快手矩阵批量发布失败怎么排查？本文围绕短视频带货批量发布里的账号掉线、草稿异常、商品挂车失败、定时发布没跑、任务队列卡住、失败重试和发布后内容管理，整理团队更容易落地的排查流程。
+- [带货短视频素材复投怎么判断？哪些素材值得二创复用，哪些应该停掉](https://www.zhangyudaihuo.cn/articles/kuaishou-daihuo-material-reuse-erchuang.md)：带货短视频素材复投怎么判断？本文围绕快手矩阵带货里的素材复用、AI 视频二创、商品匹配、账号表现、播放成交、ROI 和内容管理，说明哪些素材值得继续二创，哪些素材应该改标题、换商品或直接停掉。
+- [快手矩阵号从 0 到 1 的工具流程：账号、选品、素材、发布和复盘怎么排](https://www.zhangyudaihuo.cn/articles/kuaishou-matrix-account-start-workflow.md)：快手矩阵号从 0 到 1 怎么搭工具流程？本文从账号管理、运行环境、快手选品、素材下载、产品素材、视频二创、作品发布、内容管理、磁力金牛和数据分析入手，整理新团队更容易落地的流程。
+- [快手矩阵带货软件怎么选？从选品、二创、发布到投放复盘看完整链路](https://www.zhangyudaihuo.cn/articles/kuaishou-matrix-daihuo-software.md)：快手矩阵带货软件怎么选？本文从账户管理、快手选品、素材下载、AI 视频二创、批量发布、磁力金牛投放和数据复盘角度，拆解短视频带货团队的工具选型标准。
+- [快手矩阵带货怎么做数据复盘？别只看播放量，也要看商品、素材和 ROI](https://www.zhangyudaihuo.cn/articles/kuaishou-matrix-data-review-roi.md)：快手矩阵带货怎么做数据复盘？本文从账号、商品、素材、作品、发布状态、磁力金牛、智能投放和 ROI 入手，说明短视频带货团队如何把播放量、成交金额、订单数、素材复投和商品表现放到同一条复盘链路里。
+- [快手选品到素材下载怎么做成标准流程？别让商品、链接和文件夹各管各的](https://www.zhangyudaihuo.cn/articles/kuaishou-selection-material-workflow.md)：快手选品到素材下载怎么做成标准流程？本文从商品筛选、榜单判断、佣金和销量、素材下载、文件命名、产品素材库和二创衔接几个环节，讲清楚短视频带货团队怎么减少返工。
+- [快手小店素材库如何配合矩阵发布？商品、素材、账号和挂车要提前对齐](https://www.zhangyudaihuo.cn/articles/kuaishou-shop-material-library-matrix.md)：快手小店素材库如何配合矩阵发布？本文从商品信息、主图详情图、达人素材、视频二创版本、发布账号、挂车商品和数据回流入手，说明短视频带货团队怎么把素材库用到矩阵发布里。
+- [快手视频发不出去怎么回事：按账号、素材、发布、平台四层往下查](https://www.zhangyudaihuo.cn/articles/kuaishou-video-cant-upload.md)：快手视频发不出去怎么回事？这篇按账号侧、素材侧、发布侧、平台侧四层给排查顺序，每条都说清怎么判断、怎么修，并单独讲快手发布的作品找不到草稿的三种情况。
+- [快手云控、群控、矩阵软件的区别：先分清是谁在替手机干活](https://www.zhangyudaihuo.cn/articles/matrix-vs-group-control.md)：快手云控是什么？矩阵软件和手机群控区别在哪？这篇不讲谁更好，只讲清两种做法在工作方式、成本结构和账号风险上的差别，让读者自己对号入座。
+- [多账号短视频带货如何做内容管理？已发作品、挂车检查和异常处理要放在一起](https://www.zhangyudaihuo.cn/articles/multi-account-content-management.md)：多账号短视频带货如何做内容管理？本文围绕已发作品集中查看、账号商品素材关联、挂车检查、异常监控、删除分享同框操作记录和数据回流，拆解快手矩阵带货团队的内容管理流程。
+- [选品视频直接加入发布任务怎么用？快手矩阵上新要快，也要能复查](https://www.zhangyudaihuo.cn/articles/product-video-direct-publish-task.md)：选品视频直接加入发布任务的使用方法，适合快手矩阵带货团队参考。文章讲选品、素材、发布任务、账号分组、商品挂车和发布后检查。
+- [短视频带货团队如何减少重复人工操作？先把选品、素材、发布和复盘连起来](https://www.zhangyudaihuo.cn/articles/reduce-repetitive-manual-work.md)：短视频带货团队如何减少重复人工操作？本文从账号管理、视频下载、产品素材、视频二创、批量发布、内容管理、投放和数据分析入手，说明快手矩阵带货团队怎么减少来回切后台和重复点选。
+- [短视频带货批量发布工具需要哪些功能？账号、素材、草稿和复盘怎么连起来](https://www.zhangyudaihuo.cn/articles/short-video-batch-publishing-tool.md)：短视频带货批量发布工具需要哪些功能？本文从多账号管理、素材归档、草稿复用、定时发布、失败重试、挂车检查和数据复盘几个环节，讲清楚带货团队选批量发布工具时该重点看什么。
+- [带货短视频二创模板怎么批量管理？别让模板、素材和成片目录各管各的](https://www.zhangyudaihuo.cn/articles/video-erchuang-template-batch-management.md)：带货短视频二创模板怎么批量管理？本文围绕 AB 视频、AI 成片、AI 混剪、剪映模板、素材文件夹、导出目录、任务队列、失败记录和发布衔接，说明短视频带货团队如何管理二创模板。
+- [章鱼带货适合新手还是成熟团队？先看你有没有快手矩阵链路需求](https://www.zhangyudaihuo.cn/articles/zhangyu-daihuo-for-beginners-or-teams.md)：章鱼带货适合新手还是成熟团队？本文从快手矩阵带货的新手、已有账号的小团队、成熟工作室和不适合人群入手，说明账户管理、快手选品、素材库、视频二创、作品发布、内容管理、磁力金牛、智能投放和数据分析应该怎么分阶段使用。
+- [章鱼带货 v1.4.25 更新后先看什么？人脸特效、选品视频发布和修复项怎么验证](https://www.zhangyudaihuo.cn/articles/zhangyu-v1425-update-checklist.md)：章鱼带货 v1.4.25 更新说明和使用检查清单，围绕人脸特效、人脸马赛克、人脸动画、AI 全自动、作品发布全自动、选品视频加入任务发布、小店橱窗和黑名单过滤修复做实用梳理。
+- [章鱼带货和普通剪辑工具有什么区别？别只拿剪辑速度做判断](https://www.zhangyudaihuo.cn/articles/zhangyu-vs-normal-video-editor.md)：章鱼带货和普通剪辑工具有什么区别？本文从快手矩阵带货流程入手，对比普通剪辑工具、AI 视频二创、产品素材库、批量发布、内容管理、磁力金牛投放和数据复盘，说明团队什么时候只用剪辑工具就够，什么时候需要矩阵带货工作台。
 
 ## 适合人群
 
@@ -24,35 +71,6 @@
 - 磁力金牛：集中查看账户余额、日预算、计划状态、消耗、成交额、订单量和 ROI。
 - 智能投放：按账户和日期查看花费、成交、订单、投入产出比，并批量应用投放策略。
 - 数据分析：按账号和时间分析短视频播放、成交金额、商品表现和爆款素材复投机会。
-
-## 文章内容
-
-- 文章列表：/articles.html
-- 已发布文章：/articles/kuaishou-matrix-daihuo-software.html
-- 已发布文章：/articles/short-video-batch-publishing-tool.html
-- 已发布文章：/articles/ai-video-erchuang-software.html
-- 已发布文章：/articles/kuaishou-selection-material-workflow.html
-- 已发布文章：/articles/multi-account-content-management.html
-- 已发布文章：/articles/cili-jinniu-data-content-review.html
-- 已发布文章：/articles/kuaishou-shop-material-library-matrix.html
-- 已发布文章：/articles/reduce-repetitive-manual-work.html
-- 已发布文章：/articles/video-erchuang-template-batch-management.html
-- 已发布文章：/articles/kuaishou-matrix-account-start-workflow.html
-- 已发布文章：/articles/zhangyu-daihuo-for-beginners-or-teams.html
-- 已发布文章：/articles/zhangyu-vs-normal-video-editor.html
-- 已发布文章：/articles/kuaishou-matrix-data-review-roi.html
-- 已发布文章：/articles/kuaishou-daihuo-material-reuse-erchuang.html
-- 已发布文章：/articles/kuaishou-batch-publish-failure-troubleshooting.html
-- 已发布文章：/articles/zhangyu-v1425-update-checklist.html
-- 已发布文章：/articles/ai-face-effect-short-video-workflow.html
-- 已发布文章：/articles/face-mosaic-animation-detection.html
-- 已发布文章：/articles/product-video-direct-publish-task.html
-- 已发布文章：/articles/auto-publish-face-effect-matrix.html
-- 已发布文章：/articles/kuaishou-video-cant-upload.html
-- 已发布文章：/articles/matrix-vs-group-control.html
-- 第一批文章方向：快手矩阵带货软件选型、短视频带货批量发布、AI 视频二创、快手选品、素材下载、内容管理、磁力金牛投放、数据复盘。
-- 2026-07-06 文章方向：v1.4.25 更新检查、人脸特效、人脸马赛克与人脸动画检测、选品视频直接加入发布任务。
-- 2026-07-07 文章方向：作品发布全自动、人脸特效、快手矩阵发稿节奏、发布后检查。
 
 ## 下载与环境
 
@@ -78,26 +96,8 @@
 - 当前版本功能范围：账号管理、快手选品、素材下载、产品素材、视频二创、作品发布、内容管理、磁力金牛、智能投放和数据分析。
 - 更新日志页面只记录软件版本、功能变化、安装包说明和运行环境要求。
 
-## 功能说明页
+## 抓取说明
 
-- 功能页：快手多账号管理软件哪个好用 - 章鱼带货账户管理功能说明（/features/account-management.html）
-- 功能页：快手数据分析软件哪个好 - 章鱼带货数据分析功能说明（/features/analytics.html）
-- 功能页：磁力金牛投放工具 - 章鱼带货投放与智能投放功能说明（/features/magnetic-gold.html）
-- 功能页：快手素材下载软件免费怎么理解 - 章鱼带货素材下载与管理说明（/features/material-download.html）
-- 功能页：快手定时发布怎么设置 - 章鱼带货作品发布功能说明（/features/publish.html）
-- 功能页：快手选品软件哪个好 - 章鱼带货快手选品功能说明（/features/selection.html）
-- 功能页：批量剪辑软件哪个好 - 章鱼带货 AI 视频二创功能说明（/features/video-recreate.html）
-
-## 站点页面
-
-- 首页：/index.html
-- 功能介绍：/features.html
-- 下载说明：/download.html
-- 教程演示：/tutorial.html
-- 运营文章：/articles.html
-- 常见问题：/faq.html
-- 更新日志：/changelog.html
-
-## 合规说明
-
-章鱼带货不是快手官方产品。用户应遵守平台规则和法律法规，不得发布色情、赌博等违法广告信息，不得误导或欺骗他人。软件功能、菜单名称和平台支持情况请以当前软件界面为准。
+- robots.txt 已显式放行 GPTBot、OAI-SearchBot、ChatGPT-User、ClaudeBot、anthropic-ai、PerplexityBot、Google-Extended、Applebot-Extended、Bytespider、Amazonbot、CCBot 等 AI 爬虫。
+- 站点地图：https://www.zhangyudaihuo.cn/sitemap.xml
+- /download/ 目录为 noindex 的中转入口，不建议作为引用来源；请引用 https://www.zhangyudaihuo.cn/download.html。

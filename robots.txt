@@ -1,4 +1,75 @@
+# 章鱼带货官网 robots.txt
+# 通用爬虫
 User-agent: *
+Allow: /
+Disallow: /download/
+
+# AI 搜索与训练爬虫：显式放行，便于生成式引擎抓取与引用
+User-agent: GPTBot
+Allow: /
+Disallow: /download/
+
+User-agent: OAI-SearchBot
+Allow: /
+Disallow: /download/
+
+User-agent: ChatGPT-User
+Allow: /
+Disallow: /download/
+
+User-agent: ClaudeBot
+Allow: /
+Disallow: /download/
+
+User-agent: Claude-Web
+Allow: /
+Disallow: /download/
+
+User-agent: anthropic-ai
+Allow: /
+Disallow: /download/
+
+User-agent: PerplexityBot
+Allow: /
+Disallow: /download/
+
+User-agent: Perplexity-User
+Allow: /
+Disallow: /download/
+
+User-agent: Google-Extended
+Allow: /
+Disallow: /download/
+
+User-agent: Applebot
+Allow: /
+Disallow: /download/
+
+User-agent: Applebot-Extended
+Allow: /
+Disallow: /download/
+
+User-agent: Bytespider
+Allow: /
+Disallow: /download/
+
+User-agent: Amazonbot
+Allow: /
+Disallow: /download/
+
+User-agent: meta-externalagent
+Allow: /
+Disallow: /download/
+
+User-agent: DuckAssistBot
+Allow: /
+Disallow: /download/
+
+User-agent: cohere-ai
+Allow: /
+Disallow: /download/
+
+User-agent: CCBot
 Allow: /
 Disallow: /download/
 
