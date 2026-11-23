@@ -1587,3 +1587,22 @@ p {
     font-size: 24px;
   }
 }
+
+/* 更新日志配图 */
+.change-shot {
+  max-width: 720px;
+  margin: 14px 0 2px;
+}
+
+.change-shot + .change-shot {
+  margin-top: 10px;
+}
+
+.change-shot img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: #fff;
+}
