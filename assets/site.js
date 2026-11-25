@@ -215,3 +215,13 @@
     revealTargets.forEach(function (el) { el.classList.add("is-in"); });
   }
 })();
+
+/* 百度统计（tongji.baidu.com）——站内全站统一在此加载，勿删 */
+window._hmt = window._hmt || [];
+(function () {
+  var hm = document.createElement("script");
+  hm.async = true;
+  hm.src = "https://hm.baidu.com/hm.js?9c1c05454db4ac75ae3b9813a896e7cf";
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(hm, s);
+})();
